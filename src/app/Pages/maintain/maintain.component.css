@@ -1,0 +1,126 @@
+* {
+
+    font-family: "Poppins", sans-serif;
+    box-sizing: border-box;
+}
+
+.content h1 span {
+    color: #ff3753;
+}
+
+.content h1 {
+    font-size: 64px;
+    font-weight: 600;
+}
+
+.content h1 span {
+    color: #ff4081;
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    background-image: url('https://res.cloudinary.com/daf1fkwp5/image/upload/v1727634180/background_eldpma.png');
+    background-position: center;
+    background-size: cover;
+    padding: 0 8%;
+    text-align: center;
+    padding: 50px;
+}
+
+.content button {
+    background: transparent;
+    border: 2px solid #fff;
+    outline: none;
+    padding: 12px 25px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    margin-top: 30px;
+    cursor: pointer;
+}
+
+.content button img {
+    width: 15px;
+    margin-left: 10px;
+}
+
+
+
+
+.launch-time {
+    display: flex;
+}
+
+.launch-time {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 20px 0;
+}
+
+.launch-time div {
+    text-align: center;
+    flex-basis: 100px;
+}
+
+.launch-time p {
+    margin: 0;
+    font-size: 60px;
+
+}
+
+.launch-time span {
+    display: block;
+    font-size: 18px;
+}
+
+.logo {
+    width: 120px;
+    padding: 20px 0;
+    cursor: pointer;
+}
+/* .logo {
+    width: 150px;
+    margin-bottom: 20px;
+} */
+
+
+button {
+    background-color: #ff4081;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button img {
+    width: 20px;
+    margin-left: 10px;
+}
+
+.rocket {
+    width: 250px;
+    position: absolute;
+    right: 10%;
+    bottom: 0;
+    animation: rocket 4s linear infinite;
+}
+
+.rocket {
+    width: 100px;
+    margin-top: 30px;
+}
+
+@keyframes rocket {
+    0% {
+        bottom: 0;
+        opacity: 0;
+    }
+
+    100% {
+        bottom: 105%;
+        opacity: 1;
+    }
+}

@@ -1,0 +1,66 @@
+.carousel-item img {
+    width: 100%; /* Full width of the carousel */
+    height: 500px; /* Set a fixed height */
+    object-fit: cover; /* Ensures the image is cropped and covers the area without distortion */
+}
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background for controls */
+    border-radius: 50%; /* Rounded controls */
+}
+
+.carousel-item {
+    transition: transform 0.5s ease-in-out; /* Smooth transitions between slides */
+}
+
+.col-12, .col-sm-6, .col-md-4 {
+    position: relative;
+    overflow: hidden;
+}
+/* .col-4 {
+    position: relative;
+    overflow: hidden;
+} */
+
+.col-md-4 img {
+    width: 100%; /* Ensures full width */
+    height: 300px; /* Uniform height for all images */
+    object-fit: cover; /* Crops the images to fit inside the container */
+    transition: transform 0.5s ease-in-out; /* Smooth transition on hover */
+}
+.col-md-4:hover img {
+    transform: scale(1.1); /* Slight zoom effect on hover */
+}
+.card-body {
+    transition: all 0.3s ease-in-out;
+}
+
+.col-md-4:hover .card-body {
+    color: #007bff; /* Optional: Change text color on hover */
+}
+.card {
+    min-height: 100%;
+  }
+  .card-img-top {
+    height: 200px;
+    object-fit: cover;
+  }
+
+.slide-1
+{
+    overflow: hidden;
+    box-sizing: border-box;
+    height: 500px;
+    background:url('https://img.freepik.com/free-photo/young-tourist-couple-city_23-2147828120.jpg?ga=GA1.1.1916324182.1722190779&semt=ais_hybrid');
+    background-size: cover;
+    background-position: center center;
+}
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,22 @@
+.nav-link{
+    color: rgb(46, 46, 239);
+}
+.nav-link:hover {
+    color: #007bff;
+}
+.navbar{
+    height: 160px;
+}
+.navbar {
+    background-color: #ffff; /* Light background */
+  }
+  
+  .nav-link {
+    color: #007bff; /* Bootstrap link color */
+    font-size: large;
+  }
+  
+  .nav-link:hover {
+    color: #0056b3; /* Darker on hover */
+  }
+  

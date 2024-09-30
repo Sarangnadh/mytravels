@@ -1,0 +1,23 @@
+#contact,.contact-bg {
+    background-size: cover;
+    background-position: top center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.contact-cover {
+    height: 900px;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    position: relative;
+    float: left;
+    width: 100%;
+}
+
+
+.form-control {
+    background-color: rgba(255, 255, 255, 0.3); /* White background with transparency */
+    color: #333; /* Dark text color */
+    border: 1px solid #ddd;
+}

@@ -1,0 +1,65 @@
+
+<div class="container">
+    <div class="row  vh-100 align-items-center" >
+
+        <div class="col-lg-4 offset-lg-4 col-md-8 offset-md-2 col-10 offset-1 ">
+            <div class="rounded-4 border-0 shadow-lg bg-white" style="min-height: 450px;">
+                <div class="d-flex justify-content-start align-items-center">
+                    <div class="p-5 w-100">
+
+                        <div class="mb-4  h2 text-success text-center">
+                            Signup
+                        </div>
+                        
+                        <form [formGroup]="register" (ngSubmit)="registernow()">
+                        <!-- Name -->
+                        <div class="mb-3">
+                            <input type="text" name="fullname" formControlName="fullname" class="form-control  bg-body-secondary" placeholder="Full Name" id="fullname" required >
+                            <div *ngIf="this.register.get('fullname')?.errors&&this.register.get('fullname')?.touched && this.register.get('fullname')?.hasError('maxlength')" style="color:red;">Invalid format for Name</div>
+                        
+                        </div>
+                        
+                        <!-- Email -->
+                        <div class="mb-3">
+                            <input type="text" name="email" id="useremail" formControlName="email" class="form-control bg-body-secondary" placeholder="Email" required >
+                            <div *ngIf="this.register.get('email')?.errors&&this.register.get('email')?.touched " style="color:red;">Please Enter the correct Email</div>
+                        
+                        </div>
+                        
+                        <!-- Mobno -->
+                        
+                        <div class="mb-3">
+                            <input type="text" name="mobno" id="usermobno" formControlName="mobno" class="form-control bg-body-secondary" placeholder="Mobile Number"required >
+                            <div *ngIf="this.register.get('mobno')?.errors&&this.register.get('mobno')?.touched " style="color:red;">Please Enter the correct Number</div>
+                        
+                        </div>
+                        
+                        <!-- Password -->
+                        <div class="mb-3">
+                            <input type="text" name="password" formControlName="password" class="form-control bg-body-secondary" placeholder=" Password"  id="userpswd" required>
+                            <div *ngIf="this.register.get('password')?.errors&&this.register.get('password')?.touched " style="color:red;">Please Enter the Password</div>
+                        
+                        </div>
+                        <div class="mt-4">
+                            <button type="submit" class="btn btn-success w-100 rounded-3">Register</button>
+                        </div>
+                        <p class=" mt-4">Already have an account ? <a href="\login">Log in</a></p>
+                        </form>
+                        
+
+
+
+
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        
+
+    </div>
+
+</div>
+
+
