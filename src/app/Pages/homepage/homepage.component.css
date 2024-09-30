@@ -57,6 +57,36 @@
 }
 
 
+.airline-slider {
+    width: 100%;
+    overflow: hidden; /* Hides overflow content */
+    background-color: #f0f0f0; /* Optional: background color */
+    padding: 10px 0; /* Add some padding for aesthetics */
+}
+
+.airline-img {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    animation: slide 33s linear infinite; /* Smooth, continuous sliding */
+}
+
+.icon {
+    width: auto; /* Adjust size of icons */
+    height: 100px;
+    margin: 0 20px; /* Add spacing between icons */
+}
+
+/* Keyframes for sliding effect */
+@keyframes slide {
+    0% {
+        transform: translateX(100%); /* Start fully outside the right side of the container */
+    }
+    100% {
+        transform: translateX(-100%); /* Move fully outside the left side */
+    }
+}
 
 
 
