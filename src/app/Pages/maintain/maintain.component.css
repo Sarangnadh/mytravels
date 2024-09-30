@@ -45,9 +45,6 @@
     margin-left: 10px;
 }
 
-
-
-
 .launch-time {
     display: flex;
 }
@@ -80,10 +77,7 @@
     padding: 20px 0;
     cursor: pointer;
 }
-/* .logo {
-    width: 150px;
-    margin-bottom: 20px;
-} */
+
 
 
 button {

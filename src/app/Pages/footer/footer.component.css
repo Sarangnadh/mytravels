@@ -9,84 +9,84 @@ body {
 
 /* Footer Styling */
 #gtco-footer {
-    background: #343a40; /* Dark background color */
-    color: #ffffff; /* White text color */
-    padding: 60px 0; /* Padding for top and bottom */
+    background: #343a40; 
+    color: #ffffff; 
+    padding: 60px 0; 
 }
 
 /* Widget Titles */
 .gtco-widget h3 {
-    color: #ffffff; /* White color for widget titles */
-    margin-bottom: 20px; /* Space below the titles */
+    color: #ffffff; 
+    margin-bottom: 20px;
 }
 
 /* Footer Links */
 .gtco-footer-links {
-    list-style-type: none; /* Remove bullet points */
-    padding: 0; /* Remove padding */
+    list-style-type: none; 
+    padding: 0; 
 }
 
 .gtco-footer-links li {
-    margin-bottom: 10px; /* Space between items */
+    margin-bottom: 10px; 
 }
 
 .gtco-footer-links a {
-    color: rgba(255, 255, 255, 0.8); /* Light white links */
-    text-decoration: none; /* Remove underline */
+    color: rgba(255, 255, 255, 0.8); 
+    text-decoration: none;
 }
 
 .gtco-footer-links a:hover {
-    color: #ffffff; /* Full white on hover */
+    color: #ffffff; 
 }
 
 /* Quick Contact Section */
 .gtco-quick-contact {
-    list-style-type: none; /* Remove bullet points */
-    padding: 0; /* Remove padding */
+    list-style-type: none;
+    padding: 0; 
 }
 
 .gtco-quick-contact li {
-    margin-bottom: 10px; /* Space between items */
+    margin-bottom: 10px; 
 }
 
 .gtco-quick-contact a {
-    color: rgba(255, 255, 255, 0.8); /* Light white links */
-    text-decoration: none; /* Remove underline */
+    color: rgba(255, 255, 255, 0.8); 
+    text-decoration: none; 
 }
 
 .gtco-quick-contact a:hover {
-    color: #ffffff; /* Full white on hover */
+    color: #ffffff; 
 }
 
 /* Copyright Section */
 .copyright {
-    margin-top: 30px; /* Space above copyright section */
-    text-align: center; /* Center the text */
-    font-size: 14px; /* Smaller font size */
+    margin-top: 30px;
+    text-align: center; 
+    font-size: 14px;
 }
 
 .pull-left {
-    float: left; /* Align left */
+    float: left; 
 }
 
 .pull-right {
-    float: right; /* Align right */
+    float: right;
 }
 
 /* Social Icons */
 .gtco-social-icons {
-    list-style-type: none; /* Remove bullet points */
-    padding: 0; /* Remove padding */
+    list-style-type: none; 
+    padding: 0; 
 }
 
 .gtco-social-icons li {
- display: inline;/* Display icons inline */
-    margin-left: 10px; /* Space between icons */
+ display: inline;
+    margin-left: 10px;
 }
 
 .gtco-social-icons a {
-    color: #fff ;/* Icon color */
-    font-size: 18px; /* Icon size */
+    color: #fff ;
+    font-size: 18px; 
 }
 
 /* Clearfix for floating elements */

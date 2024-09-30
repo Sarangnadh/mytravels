@@ -8,15 +8,15 @@
     height: 160px;
 }
 .navbar {
-    background-color: #ffff; /* Light background */
+    background-color: #ffff; 
   }
   
   .nav-link {
-    color: #007bff; /* Bootstrap link color */
+    color: #007bff; 
     font-size: large;
   }
   
   .nav-link:hover {
-    color: #0056b3; /* Darker on hover */
+    color: #0056b3; 
   }
   

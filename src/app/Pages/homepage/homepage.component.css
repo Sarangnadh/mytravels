@@ -1,42 +1,39 @@
 .carousel-item img {
-    width: 100%; /* Full width of the carousel */
-    height: 500px; /* Set a fixed height */
-    object-fit: cover; /* Ensures the image is cropped and covers the area without distortion */
+    width: 100%; 
+    height: 500px; 
+    object-fit: cover; 
 }
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background for controls */
-    border-radius: 50%; /* Rounded controls */
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 50%; 
 }
 
 .carousel-item {
-    transition: transform 0.5s ease-in-out; /* Smooth transitions between slides */
+    transition: transform 0.5s ease-in-out; 
 }
 
 .col-12, .col-sm-6, .col-md-4 {
     position: relative;
     overflow: hidden;
 }
-/* .col-4 {
-    position: relative;
-    overflow: hidden;
-} */
+
 
 .col-md-4 img {
-    width: 100%; /* Ensures full width */
-    height: 300px; /* Uniform height for all images */
-    object-fit: cover; /* Crops the images to fit inside the container */
-    transition: transform 0.5s ease-in-out; /* Smooth transition on hover */
+    width: 100%; 
+    height: 300px; 
+    object-fit: cover; 
+    transition: transform 0.5s ease-in-out; 
 }
 .col-md-4:hover img {
-    transform: scale(1.1); /* Slight zoom effect on hover */
+    transform: scale(1.1); 
 }
 .card-body {
     transition: all 0.3s ease-in-out;
 }
 
 .col-md-4:hover .card-body {
-    color: #007bff; /* Optional: Change text color on hover */
+    color: #007bff; 
 }
 .card {
     min-height: 100%;
@@ -59,9 +56,9 @@
 
 .airline-slider {
     width: 100%;
-    overflow: hidden; /* Hides overflow content */
-    background-color: #f0f0f0; /* Optional: background color */
-    padding: 10px 0; /* Add some padding for aesthetics */
+    overflow: hidden; 
+    background-color: #f0f0f0; 
+    padding: 10px 0; 
 }
 
 .airline-img {
@@ -69,22 +66,22 @@
     justify-content: flex-start;
     align-items: center;
     width: 100%;
-    animation: slide 33s linear infinite; /* Smooth, continuous sliding */
+    animation: slide 10s linear 2 forwards; 
 }
 
 .icon {
-    width: auto; /* Adjust size of icons */
+    width: auto; 
     height: 100px;
-    margin: 0 20px; /* Add spacing between icons */
+    margin: 0 20px; 
 }
 
 /* Keyframes for sliding effect */
 @keyframes slide {
     0% {
-        transform: translateX(100%); /* Start fully outside the right side of the container */
+        transform: translateX(100%); 
     }
     100% {
-        transform: translateX(-100%); /* Move fully outside the left side */
+        transform: translateX(-100%); 
     }
 }
 
