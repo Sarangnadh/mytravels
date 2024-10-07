@@ -8,7 +8,7 @@ import { MaintainComponent } from './Pages/maintain/maintain.component';
 
 export const routes: Routes = [
     {path:"login",component:LoginComponent},
-    {path:"home",component:HomepageComponent},
+    {path:"",component:HomepageComponent},
     {path:"about",component:AboutComponent},
     {path:"services",component:ServicesComponent},
     {path:"contact",component:ContactComponent},

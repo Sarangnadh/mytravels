@@ -9,7 +9,7 @@ import { interval, Subscription } from 'rxjs';
   styleUrl: './maintain.component.css'
 })
 export class MaintainComponent implements OnInit,OnDestroy {
-  targetDate: Date = new Date('Oct 16, 2024 00:00:00');
+  targetDate: Date = new Date('nov 15, 2024 00:00:00');
   days: string = '00';
   hours: string = '00';
   minutes: string = '00';
