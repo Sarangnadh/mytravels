@@ -1,0 +1,50 @@
+/* .cart{
+    background-color: antiquewhite;
+    transition: all 0.3s ease-in-out;}
+.cart:hover{
+    background-color: #007bff;
+} */
+.card {
+    /* Set fixed width and height */
+    width: 100%; /* Ensure it fills the parent container */
+    height: 350px; /* Adjust this based on your design preference */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Ensures the content is spaced out */
+    perspective: 1000px; /* 3D effect */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    border: none;
+    overflow: hidden; /* Prevent content from overflowing the card */
+    
+  }
+  
+  .card:hover {
+    /* 3D rotation and scale on hover */
+    transform: rotateY(10deg) rotateX(5deg) scale(1.05);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Ensure image height fits the card */
+  .card-img-top {
+    height: 60%; /* Takes up 60% of the card height */
+    object-fit: cover; /* Ensures the image scales to fill the space without stretching */
+    border-radius: 5px 5px 0 0;
+  }
+  
+  .card-body {
+    height: 40%; /* Remaining 40% for the body */
+    padding: 15px;
+    background-color:rgba(0, 0, 0,0.1);
+    border-radius: 0 0 5px 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+  
+  /* Optional: Add a subtle glow effect on hover */
+  .card:hover {
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  }
+  
+  

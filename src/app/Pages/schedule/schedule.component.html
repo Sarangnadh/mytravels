@@ -1,1 +1,58 @@
+<div class="container mt-5" *ngIf="selectedSchedule">
+  
+  <!-- Display 'You Must Visit' heading only if mustvisit data exists -->
+  <div *ngIf="selectedSchedule.mustvisit && selectedSchedule.mustvisit.length > 0">
+    <h3 class="text-center">You Must Visit {{ selectedSchedule.pname }}</h3>
 
+    <!-- Must Visit Places -->
+    <div class="row">
+      <div class="col-md-4 mb-4" *ngFor="let mustvisit of selectedSchedule.mustvisit;">
+        <div class="card">
+          <img class="card-img-top" [src]="mustvisit.img" alt="{{ mustvisit.mvname }}">
+          <div class="card-body">
+            <h5 class="card-title">{{ mustvisit.mvname }}</h5>
+            <p>{{ mustvisit.des }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Display 'Hotels Available' heading only if hotel data exists -->
+  <div *ngIf="selectedSchedule.hotel && selectedSchedule.hotel.length > 0">
+    <h3>Hotels Available</h3>
+    <div class="row">
+      <div class="col-md-4 mb-4" *ngFor="let hotel of selectedSchedule.hotel">
+        <div class="card">
+          <img class="card-img-top" [src]="hotel.img" alt="{{ hotel.name }}">
+          <div class="card-body">
+            <h5 class="card-title">{{ hotel.name }}</h5>
+            <p>{{ hotel.star }} Stars</p>
+            <p>{{ hotel.address }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Display 'Available Airlines' heading only if airline data exists -->
+  <div *ngIf="selectedSchedule.airlines && selectedSchedule.airlines.length > 0">
+    <h3>Available Airlines</h3>
+    <div class="row">
+      <div class="col-md-4 mb-4" *ngFor="let airline of selectedSchedule.airlines">
+        <div class="card">
+          <img class="card-img-top" [src]="airline.img" alt="{{ airline.airlineName }}">
+          <div class="card-body">
+            <h5 class="card-title">{{ airline.airlineName }}</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- 'Schedule Your Trip' button -->
+<div class="items-center" *ngIf="selectedSchedule">
+  <button (click)="booking()" class="btn btn-primary items-center">Schedule Your Trip</button>
+</div>
