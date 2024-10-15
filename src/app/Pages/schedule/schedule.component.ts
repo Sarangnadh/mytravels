@@ -658,6 +658,8 @@ constructor(private router:Router,private route:ActivatedRoute){}
     
 
   ]
+
+
   ngOnInit(): void {
     // Extract the ID from the route parameters
     const id = this.route.snapshot.paramMap.get('id');
@@ -668,6 +670,8 @@ constructor(private router:Router,private route:ActivatedRoute){}
   
       // Find the schedule that matches the currentId
       this.selectedSchedule = this.scheduledetails.find((schedule: any) => schedule.id === this.currentId);
+      console.log(this.selectedSchedule);
+      
     }
       // If the schedule exists, use it, otherwise handle the error case
     //   if (this.selectedSchedule) {
@@ -683,6 +687,15 @@ constructor(private router:Router,private route:ActivatedRoute){}
 
 booking()
 {
-  this.router.navigateByUrl("main")
+  this.router.navigate(['/booking'], {
+    queryParams: { 
+      id: this.selectedSchedule.id,
+      pname: this.selectedSchedule.pname,
+      hotel: JSON.stringify(this.selectedSchedule.hotel),
+      airlines:JSON.stringify(this.selectedSchedule.airlines),
+    }
+  });
+  console.log(this.selectedSchedule.hotel);
+  
 }
 }
