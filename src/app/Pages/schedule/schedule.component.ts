@@ -670,7 +670,7 @@ constructor(private router:Router,private route:ActivatedRoute){}
   
       // Find the schedule that matches the currentId
       this.selectedSchedule = this.scheduledetails.find((schedule: any) => schedule.id === this.currentId);
-      console.log(this.selectedSchedule);
+      // console.log(this.selectedSchedule);
       
     }
       // If the schedule exists, use it, otherwise handle the error case
@@ -695,7 +695,7 @@ booking()
       airlines:JSON.stringify(this.selectedSchedule.airlines),
     }
   });
-  console.log(this.selectedSchedule.hotel);
+  // console.log(this.selectedSchedule.hotel);
   
 }
 }
