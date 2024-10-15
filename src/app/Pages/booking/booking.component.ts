@@ -14,7 +14,6 @@ export class BookingComponent implements OnInit {
   selectedSchedule: any = {};   // This will hold the data passed from the previous page
   hotels: any[] = []; // Create an array to hold the hotel data
   flights: any[] = [];
-  desti:any;
   bookingForm!:FormGroup
  
   constructor(private router: Router, private route: ActivatedRoute,private fb:FormBuilder) { }
@@ -47,12 +46,13 @@ export class BookingComponent implements OnInit {
           hotel: JSON.parse(params['hotel']),
           airlines: JSON.parse(params['airlines'])
         }
-
+        this.bookingForm.patchValue({
+          destination: this.selectedSchedule.pname
+        });
         this.hotels = this.selectedSchedule.hotel;
         // console.log(this.hotels);
         this.flights = this.selectedSchedule.airlines
         // console.log(this.flights);
-
 
         // console.log('Selected Schedule:', this.selectedSchedule); 
         // Log the retrieved data
