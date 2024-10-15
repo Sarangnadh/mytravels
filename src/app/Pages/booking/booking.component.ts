@@ -63,7 +63,7 @@ export class BookingComponent implements OnInit {
   }
 
 booking(){
-  console.log(this.bookingForm.value);
+  // console.log(this.bookingForm.value);
   
 }
 
