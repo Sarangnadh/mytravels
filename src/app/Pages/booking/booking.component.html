@@ -10,6 +10,7 @@
                    required />
                 
             </div>
+            <div *ngIf="bookingForm.get('CustomerName')?.hasError('pattern') && bookingForm.get('CustomerName')?.touched" style="color: red;">Invalid Name</div>
             <!-- from -->
             <div class="form-group mt-3" >
                 <label for="destination">From</label>
@@ -30,6 +31,7 @@
                      required />
                 
             </div>
+            <div *ngIf="bookingForm.get('selectDate')?.hasError('pastDate')" style="color: red;">Select date cannot be in the past</div>
             <!-- Return -->
             <div class="form-group mt-3">
                 <label for="returnDate">Return</label>
@@ -53,10 +55,10 @@
                     required>
                     <option value="" disabled>Select your Comfort</option>
                     <option *ngFor="let hotel of hotels" [value]="hotel.name">{{hotel.name}}</option>
-                   
-                </select>
+                    </select>
               
             </div>
+            <div *ngIf="bookingForm.get('selectedHotel')?.hasError('required') && bookingForm.get('selectedHotel') && bookingForm.get('selectedHotel')?.touched" style="color: red;">Please Select a Hotel</div>
 
             <!-- airlines -->
             <div class="form-group mt-3">
@@ -65,11 +67,10 @@
                 formControlName="selectedFlight"
                  required>
                     <option value="" disabled>Select your flight</option>
-                    <option *ngFor="let flight of flights" [value]="flight.airlineName">{{flight.airlineName}}</option>
-                   
-                </select>
-              
+                    <option *ngFor="let flight of flights" [value]="flight.airlineName">{{flight.airlineName}}</option>                  
+                </select>         
             </div>
+            <div *ngIf="bookingForm.get('selectedFlight')?.hasError('required') && bookingForm.get('selectedFlight') && bookingForm.get('selectedFlight')?.touched " style="color: red;">Please Select a Airline</div>
 
             
             <!-- Submit Button -->

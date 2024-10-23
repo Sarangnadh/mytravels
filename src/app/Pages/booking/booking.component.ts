@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -20,14 +20,14 @@ export class BookingComponent implements OnInit {
 
   ngOnInit(): void {
    this.bookingForm=this.fb.group({
-    CustomerName:[''],
-    from:[''],
-    destination:[''],
-    selectDate:[''],
-    returnDate:[''],
-    countPeople:[''],
-    selectedHotel: [''],
-    selectedFlight: ['']
+    CustomerName:['',[Validators.required,Validators.minLength(3),Validators.pattern('^[a-zA-Z]+$')]],
+    from:['',Validators.required],
+    destination:['',Validators.required],
+    selectDate:['',[Validators.required,this.noPastDateValidator()]],
+    returnDate:['',],
+    countPeople:['',[Validators.required,Validators.min(1),Validators.max(10)]],
+    selectedHotel: ['',Validators.required,this.hotelValidator.bind(this)],
+    selectedFlight: ['',[Validators.required,this.airlineValidator.bind(this)]]
   
     })
 
@@ -61,9 +61,32 @@ export class BookingComponent implements OnInit {
       }
     });
   }
+  noPastDateValidator(){
+    return (control:any)=>{
+      const selectedDate =new Date(control.value);
+      const today =new Date();
+      today.setHours(0,0,0,0);
+      return selectedDate <today ?{pastDate:true} : null;
+    };
+  }
 
+  hotelValidator(control:any){
+    const selectedHotel=control.value;
+    if(this.hotels.length>0 && !this.hotels.includes(selectedHotel)){
+      return { invalidHotel:true};
+    }
+    return null;
+  }
+  airlineValidator(control:any)
+  {
+    const selectedFlight=control.value;
+    if(this.flights.length>0&& !this.flights.includes(selectedFlight)){
+      return {invalidFlight:true}
+    }
+    return null;
+  }
 booking(){
-  // console.log(this.bookingForm.value);
+  console.log(this.bookingForm.value);
   
 }
 
