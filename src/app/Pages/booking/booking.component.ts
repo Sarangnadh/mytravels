@@ -115,10 +115,10 @@ export class BookingComponent implements OnInit {
     return null;
   }
 booking(){
-  if(this.bookingForm.valid){
-    this.router.navigateByUrl("slotconfirm")
+ 
+    this.router.navigateByUrl("main")
     console.log(this.bookingForm.value);
-  }
+  
  
   
 }
