@@ -35,3 +35,43 @@ h3 {
     text-align: center;
     margin-top: 10px;
 }
+.package-view-container {
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+    color: #fff;
+    padding: 60px 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.package-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.package-item {
+    
+     /* Semi-transparent background for better readability */
+    padding: 20px;
+  
+}
+
+.quote {
+    font-style: italic;
+    margin: 20px 0;
+    padding: 10px;
+    border-left: 4px solid #f39c12; /* Quote highlight */
+}
+
+.btn-primary {
+    background-color: #f39c12; /* Accent button color */
+    border: none;
+    transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #e67e22; /* Darken on hover */
+}
+
+
