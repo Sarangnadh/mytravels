@@ -1,0 +1,25 @@
+.confirmation-container {
+    /* Background image */
+    background-image: url('https://www.airindia.com/adobe/dynamicmedia/deliver/dm-aid--2e3f8a2d-4b8b-4938-96dc-62213690ae26/lty-signup.png'); /* Replace with your image URL */
+    background-size: cover; /* Ensure the image covers the entire container */
+    background-position: center; /* Center the background image */
+    height: 120vh; /* Full height */
+    display: flex; /* Use flexbox for centering */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    text-align: center; /* Center text */
+    color: white; /* Text color */
+    padding: 20px; /* Add some padding */
+  }
+  
+  .confirmation-message h1 {
+    font-size: 2.5rem; /* Size of the heading */
+    margin-bottom: 1rem; /* Space below the heading */
+  }
+  
+  .confirmation-message p {
+    font-size: 1.2rem; /* Size of the paragraph */
+    max-width: 600px; /* Limit width of the text */
+    color: #007bff;
+  }
+  

@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators ,AbstractControl, ValidationErrors, ValidatorFn,} from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -14,6 +14,7 @@ export class BookingComponent implements OnInit {
   selectedSchedule: any = {};   // This will hold the data passed from the previous page
   hotels: any[] = []; // Create an array to hold the hotel data
   flights: any[] = [];
+  
   bookingForm!:FormGroup
  
   constructor(private router: Router, private route: ActivatedRoute,private fb:FormBuilder) { }
@@ -24,11 +25,12 @@ export class BookingComponent implements OnInit {
     from:['',Validators.required],
     destination:['',Validators.required],
     selectDate:['',[Validators.required,this.noPastDateValidator()]],
-    returnDate:['',],
+    returnDate:['',[Validators.required,this.noPastDateValidator()]],
     countPeople:['',[Validators.required,Validators.min(1),Validators.max(10)]],
     selectedHotel: ['',Validators.required,this.hotelValidator.bind(this)],
     selectedFlight: ['',[Validators.required,this.airlineValidator.bind(this)]]
-  
+   }, {
+    validators: [this.dateDifferenceValidator()]
     })
 
 
@@ -44,7 +46,8 @@ export class BookingComponent implements OnInit {
           id: params['id'],
           pname: params['pname'],
           hotel: JSON.parse(params['hotel']),
-          airlines: JSON.parse(params['airlines'])
+          airlines: JSON.parse(params['airlines']),
+          mustvisit: JSON.parse(params['mustvisit'])
         }
         this.bookingForm.patchValue({
           destination: this.selectedSchedule.pname
@@ -54,7 +57,7 @@ export class BookingComponent implements OnInit {
         this.flights = this.selectedSchedule.airlines
         // console.log(this.flights);
 
-        // console.log('Selected Schedule:', this.selectedSchedule); 
+        console.log('Selected Schedule:', this.selectedSchedule); 
         // Log the retrieved data
       } else {
         console.error('No schedule data found'); // Log the error message
@@ -67,6 +70,32 @@ export class BookingComponent implements OnInit {
       const today =new Date();
       today.setHours(0,0,0,0);
       return selectedDate <today ?{pastDate:true} : null;
+    };
+  }
+
+  dateDifferenceValidator(): ValidatorFn {
+    return (control: AbstractControl): ValidationErrors | null => {
+      const selectDate = control.get('selectDate')?.value;
+      const returnDate = control.get('returnDate')?.value;
+
+      if (!selectDate || !returnDate) {
+        return null; // Don't validate if dates are missing
+      }
+
+      const selectDateObj = new Date(selectDate);
+      const returnDateObj = new Date(returnDate);
+      const timeDifference = returnDateObj.getTime() - selectDateObj.getTime();
+      const dayDifference = timeDifference / (1000 * 3600 * 24);
+
+      if (selectDate === returnDate) {
+        return { sameDateError: true }; // Return error if dates are equal
+      }
+
+      if (dayDifference < 8) {
+        return { dateDifferenceError: true }; // Return error if difference is less than 8 days
+      }
+
+      return null; // No error
     };
   }
 
@@ -86,7 +115,11 @@ export class BookingComponent implements OnInit {
     return null;
   }
 booking(){
-  console.log(this.bookingForm.value);
+  if(this.bookingForm.valid){
+    this.router.navigateByUrl("slotconfirm")
+    console.log(this.bookingForm.value);
+  }
+ 
   
 }
 

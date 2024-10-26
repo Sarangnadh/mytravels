@@ -8,6 +8,7 @@ import { MaintainComponent } from './Pages/maintain/maintain.component';
 import { ScheduleComponent } from './Pages/schedule/schedule.component';
 import { NgModule } from '@angular/core';
 import { BookingComponent } from './Pages/booking/booking.component';
+import { SlotconfirmComponent } from './Pages/slotconfirm/slotconfirm.component';
 
 export const routes: Routes = [
     {path:"login",component:LoginComponent},
@@ -17,7 +18,8 @@ export const routes: Routes = [
     {path:"contact",component:ContactComponent},
     {path:"main",component:MaintainComponent},
     {path:"schedule/:id",component:ScheduleComponent},
-    {path:"booking",component:BookingComponent}
+    {path:"booking",component:BookingComponent},
+    {path:"slotconfirm",component:SlotconfirmComponent}
     
 ];
 @NgModule({

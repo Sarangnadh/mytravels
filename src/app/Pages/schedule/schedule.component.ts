@@ -1,7 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ServicesService } from '../../Services/services.service';
 
 @Component({
   selector: 'app-schedule',
@@ -693,6 +692,7 @@ booking()
       pname: this.selectedSchedule.pname,
       hotel: JSON.stringify(this.selectedSchedule.hotel),
       airlines:JSON.stringify(this.selectedSchedule.airlines),
+      mustvisit: JSON.stringify(this.selectedSchedule.mustvisit)
     }
   });
   // console.log(this.selectedSchedule.hotel);
