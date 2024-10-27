@@ -1,22 +1,67 @@
-.nav-link{
-    color: rgb(46, 46, 239);
-}
-.nav-link:hover {
-    color: #007bff;
-}
-.navbar{
-    height: 160px;
-}
+
+
+/* navbar */
 .navbar {
-    background-color: #ffff; 
+  height: auto; 
+  padding: 1rem; 
+  background-color: #f8f9fa; 
+}
+
+/* logo  */
+.navbar-logo {
+  height: auto;
+  max-width: 150px; 
+}
+
+/* navbarlinks */
+.nav-link {
+  color: black;  
+  font-size: 1.1rem; /* Slightly larger font size */
+}
+/* linkhover */
+.nav-link:hover {
+  color: #007bff; /* Color on hover */
+}
+
+/* Large */
+@media (max-width: 960px) {
+  .navbar-logo {
+    max-width: 130px; 
   }
-  
+
+  .navbar {
+    padding: 0.75rem; 
+  }
+
   .nav-link {
-    color: black;  
-    font-size: large;
+    font-size: 1rem; 
   }
-  
-  .nav-link:hover {
-    color:#007bff; 
+}
+/* medium */
+@media (max-width: 760px) {
+  .navbar-logo {
+    max-width: 120px; 
   }
- 
+
+  .navbar {
+    padding: 0.5rem;
+  }
+
+  .nav-link {
+    font-size: 0.95rem;
+  }
+}
+/* small */
+@media (max-width: 575px) {
+  .navbar-logo {
+    max-width: 100px; 
+  }
+
+  .navbar {
+    padding: 0.4rem;
+  }
+
+  .nav-link {
+    font-size: 0.9rem;
+  }
+}

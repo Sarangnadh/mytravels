@@ -35,6 +35,49 @@
 </div>
 
 
+
+<div class="text-center  mt-5">
+  <h2 class="text-blue">Choose The Best Plan For You</h2>
+  <p class="text-muted">Select from our exclusive packages for the ultimate travel experience.</p>
+</div>
+
+
+  <div class="package-view-container mt-5" *ngFor="let package of packages" [ngStyle]="{'background-image': 'url(' + package.packimg + ')'}">
+    <div class="package-header">
+      <h2 class="text-white text-center">{{ package.packagename }}</h2>
+      <p class="text-white text-center">{{ package.subtitle1 }}</p>
+    </div>
+  
+    <div class="package-content">
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <div class="package-item">
+            <!-- <div class="package-image">
+              <img style="width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);" 
+                [src]="package.packimg" 
+                [alt]="package.packagename" 
+                class="img-fluid">
+            </div> -->
+            <div class="package-description">
+              <h3 class="text-center mt-3">{{ package.packagename }}</h3>
+              <p class="text-center">{{ package.queote }}</p>
+              <blockquote class="quote text-center">
+                <p>{{ package.des }}</p>
+              </blockquote>
+              <div class="text-center">
+                <button class="btn btn-primarys" [routerLink]="package.link">{{ package.buttontitle }}</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="text-center  mt-5">
+    <h2 class="text-blue">Schedule your Trip</h2>
+  </div>
+
   <div class="home-container mt-3">
     <div class="row">
         <!-- Use *ngFor to loop over packdata -->
@@ -51,28 +94,28 @@
     </div>
 </div>
 
-  <div class="container">
-    <div class="row">
-      <div>
-        <h2 class="text-center"> Airlines that Collaborate With us </h2>
-      </div>
-      <div class="col-4 airlines-slider">
-        <div class="airline-img">
-          <img src="/assets/airindia.png" class="icon" alt="">
-          <img src="/assets/Vistara-Images.png" class="icon" alt="">
-          <img src="/assets/qatar_airways-logo.png" class="icon" alt="">
-          <img src="/assets/Emirates_logo.svg.png" class="icon" alt="">
-          <img src="/assets/AirAsia_New_Logo.svg.png" class="icon" alt="">
-          <img src="/assets/british airways.jpeg" class="icon" alt="">
-          <img src="/assets/singaporair.jpg" class="icon" alt="">
-          <!-- <img src="/assets/AirAsia_New_Logo.svg.png" class="icon" alt=""> -->
-          <img src="/assets/EY-Etihad-Airways-new-logo-En.jpg" class="icon" alt="">
-          <img src="/assets/aircanada.png" class="icon" alt="">
-        </div>
-        
+<div class="container airlines-container">
+  <div class="row">
+    <div class="col-12">
+      <h2 class="text-center">Airlines that Collaborate With Us</h2>
+    </div>
+    <div class="col-12 airlines-slider">
+      <div class="airline-img">
+        <img src="/assets/airindia.png" class="icon" alt="Air India">
+        <img src="/assets/Vistara-Images.png" class="icon" alt="Vistara">
+        <img src="/assets/qatar_airways-logo.png" class="icon" alt="Qatar Airways">
+        <img src="/assets/Emirates_logo.svg.png" class="icon" alt="Emirates">
+        <img src="/assets/AirAsia_New_Logo.svg.png" class="icon" alt="AirAsia">
+        <img src="/assets/british airways.jpeg" class="icon" alt="British Airways">
+        <img src="/assets/singaporair.jpg" class="icon" alt="Singapore Airlines">
+        <img src="/assets/EY-Etihad-Airways-new-logo-En.jpg" class="icon" alt="Etihad Airways">
+        <img src="/assets/aircanada.png" class="icon" alt="Air Canada">
       </div>
     </div>
   </div>
+</div>
+
+  
   
   
 

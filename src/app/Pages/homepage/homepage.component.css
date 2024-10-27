@@ -47,33 +47,84 @@
 {
     overflow: hidden;
     box-sizing: border-box;
-    /* height: 500px; */
-    /* background:url('https://img.freepik.com/free-photo/young-tourist-couple-city_23-2147828120.jpg?ga=GA1.1.1916324182.1722190779&semt=ais_hybrid'); */
     background-size: cover;
     background-position: center center;
 }
 
 
-.airline-slider {
+.airlines-container {
+    padding: 20px 0; 
+  }
+  
+  .airline-slider {
     width: 100%;
-    overflow: hidden; 
-    background-color: #f0f0f0; 
-    padding: 10px 0; 
-}
-
-.airline-img {
+    overflow: hidden;
+    background-color: #f0f0f0;
+    padding: 20px 0;
+  }
+  
+  .airline-img {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    width: 100%;
-    animation: slide 50s linear 2 forwards; 
-}
+    animation: slide 60s linear infinite;
+  }
+  
+  /* Icon dimensions and spacing */
+  .icon {
+    height: 80px; /* Adjusted for responsiveness */
+    margin: 0 15px; 
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .icon:hover {
+    transform: scale(1.1);  
+  }
+  
 
-.icon {
-    width: auto; 
-    height: 100px;
-    margin: 0 20px; 
-}
+
+
+  /* Keyframe animation for continuous sliding */
+  @keyframes slide {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+  
+  
+  /*  medium- */
+  @media (max-width: 768px) {
+    .icon {
+      height: 70px; /* Adjust height for tablets */
+      margin: 0 10px;
+    }
+  
+    .airline-img {
+      animation-duration: 70s; /* Slow down animation for smaller screens */
+    }
+  }
+  
+  /* smalls  */
+  @media (max-width: 576px) {
+    .icon {
+      height: 60px; /* Further reduce height for mobile */
+      margin: 0 8px;
+    }
+  
+    .airline-img {
+      animation-duration: 80s; /* Further slow down animation for better experience on mobiles */
+    }
+  
+    h2 {
+      font-size: 1.5rem; 
+    }
+  }
+  
+
+
 .holiday-package-container {
     display: flex;
     flex-direction: column;
@@ -90,10 +141,10 @@
   
   .video-wrapper {
     width: 100%;
-    max-width: 800px; /* Adjust as needed for max width */
-    height: 450px; /* Set height to match desired video coverage */
+    max-width: 800px; 
+    height: 450px; 
     overflow: hidden;
-    border-radius: 10px; /* Optional for rounded corners */
+    border-radius: 10px; 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     position: relative;
   }
@@ -105,24 +156,82 @@
     position: absolute;
     top: 0;
     left: 0;
-    object-fit: cover; /* Ensures video fully covers iframe */
+    object-fit: cover; 
   }
   
 
+  .package-view-container {
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+    color: #fff;
+    padding: 60px 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
 
-/* Keyframes for sliding effect */
-@keyframes slide {
-    0% {
-        transform: translateX(100%); 
-    }
-    100% {
-        transform: translateX(-100%); 
-    }
+.package-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.package-item {   
+    padding: 20px;
+}
+
+.package-item {   
+    padding: 20px;
+}
+.package-description:hover{
+    color:#6610f2
+}
+.quote {
+    font-style: italic;
+    margin: 20px 0;
+    padding: 10px;
+    border-left: 4px solid #f39c12; 
+}
+
+.btn-primarys {
+    background-color: #f39c12; 
+    border: none;
+    transition: background-color 0.3s;
+}
+
+.btn-primarys:hover {
+    background-color: #e67e22; 
+}
+
+.text-blue:hover {
+    color: blue; 
 }
 
 
-
-
-
-
-
+/* Responsive trip cards */
+@media (max-width: 992px) {
+    .col-md-4 img {
+        height: 250px;
+    }
+    .card-img-top {
+        height: 180px;
+    }
+}
+@media (max-width: 768px) {
+    .col-md-4 img {
+        height: 200px;
+    }
+    .card-img-top {
+        height: 150px;
+    }
+}
+@media (max-width: 576px) {
+    .col-md-4 img {
+        height: 180px;
+    }
+    .card-img-top {
+        height: 140px;
+    }
+    .package-heading {
+        font-size: 2rem;
+    }
+}

@@ -1,75 +1,42 @@
 
 
 
-  <div class="text-center gtco-heading mt-5">
-    <h2 class="text-blue">Choose The Best Plan For You</h2>
-    <p class="text-muted">Select from our exclusive packages for the ultimate travel experience.</p>
-  </div>
 
-  
-    <div class="package-view-container mt-5" *ngFor="let package of packages" [ngStyle]="{'background-image': 'url(' + package.packimg + ')'}">
-      <div class="package-header">
-        <h2 class="text-white text-center">{{ package.packagename }}</h2>
-        <p class="text-white text-center">{{ package.subtitle1 }}</p>
-      </div>
     
-      <div class="package-content">
-        <div class="row justify-content-center">
-          <div class="col-md-8">
-            <div class="package-item">
-              <!-- <div class="package-image">
-                <img style="width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);" 
-                  [src]="package.packimg" 
-                  [alt]="package.packagename" 
-                  class="img-fluid">
-              </div> -->
-              <div class="package-description">
-                <h3 class="text-center mt-3">{{ package.packagename }}</h3>
-                <p class="text-center">{{ package.queote }}</p>
-                <blockquote class="quote text-center">
-                  <p>{{ package.des }}</p>
-                </blockquote>
-                <div class="text-center">
-                  <button class="btn btn-primary" [routerLink]="package.link">{{ package.buttontitle }}</button>
-                </div>
-              </div>
+      <div>
+        <div class="text-center gtco-heading">
+          <h2 class="text-center text-blue">Our Services</h2>
+        </div>
+      
+        <div class="home-container mt-3">
+          <div class="row">
+            <!-- Flights Service -->
+            <div class="col-12 col-sm-6 col-md-4 mb-4">
+              <img style="object-fit: cover; width: 100%; height: 250px;"
+                src="https://img.freepik.com/free-photo/jumbo-jet-flying-sky_23-2150895673.jpg?t=st=1727603334~exp=1727606934~hmac=dc07ac31a9435f2dfec283f9c6ecfa6a8bdd547b4abfc52817b24304b5730d95&w=360"
+                alt="Flights Service" class="img-fluid">
+              <h3 class="text-center mt-2">Flights</h3>
+            </div>
+      
+            <!-- Hotel Service -->
+            <div class="col-12 col-sm-6 col-md-4 mb-4">
+              <img style="object-fit: cover; width: 100%; height: 250px;"
+                src="https://img.freepik.com/premium-photo/hotel-with-large-building-with-name-escalator-front_1078211-500707.jpg?w=740"
+                alt="Hotel Service" class="img-fluid">
+              <h3 class="text-center mt-2">Hotel</h3>
+            </div>
+      
+            <!-- Car Rent Service -->
+            <div class="col-12 col-sm-6 col-md-4 mb-4">
+              <img style="object-fit: cover; width: 100%; height: 250px;"
+                src="https://img.freepik.com/free-photo/financial-independent-woman-buying-new-car_23-2149571906.jpg?t=st=1727603602~exp=1727607202~hmac=94273e4a44486db6b97acb16e02ae0a4d9e4dc499d9a424bea2efdc7f48235bf&w=360"
+                alt="Car Rent Service" class="img-fluid">
+              <h3 class="text-center mt-2">Car Rent</h3>
             </div>
           </div>
         </div>
       </div>
-    </div>
-
-    <div>
-      <div class=" text-center gtco-heading">
-        <h2 class="text-center text-blue">Our Services</h2>
-    
-      </div>
-    
-      <div class="home-container mt-3">
-        <div class="row">
-          <div class="col-4">
-            <img style="object-fit: cover;"
-              src="https://img.freepik.com/free-photo/jumbo-jet-flying-sky_23-2150895673.jpg?t=st=1727603334~exp=1727606934~hmac=dc07ac31a9435f2dfec283f9c6ecfa6a8bdd547b4abfc52817b24304b5730d95&w=360"
-              alt="Design 3" class="img-fluid">
-            <h3 class="text-center">Flights</h3>
-          </div>
-          <div class="col-4">
-            <img style="object-fit: cover;"
-              src="https://img.freepik.com/premium-photo/hotel-with-large-building-with-name-escalator-front_1078211-500707.jpg?w=740"
-              alt="Design 3" class="img-fluid">
-            <h3 class="text-center">Hotel</h3>
-          </div>
-          <div class="col-4">
-            <img style="object-fit: cover;"
-              src="https://img.freepik.com/free-photo/financial-independent-woman-buying-new-car_23-2149571906.jpg?t=st=1727603602~exp=1727607202~hmac=94273e4a44486db6b97acb16e02ae0a4d9e4dc499d9a424bea2efdc7f48235bf&w=360"
-              alt="Design 3" class="img-fluid">
-            <h3 class="text-center">Car Rent</h3>
-          </div>
-    
-        </div>
-    
-      </div>
-      </div>
+      
     
       <!-- status -->
       <app-status></app-status>

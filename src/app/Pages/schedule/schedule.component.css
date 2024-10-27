@@ -1,9 +1,4 @@
-/* .cart{
-    background-color: antiquewhite;
-    transition: all 0.3s ease-in-out;}
-.cart:hover{
-    background-color: #007bff;
-} */
+
 .card {
     /* Set fixed width and height */
     width: 100%; /* Ensure it fills the parent container */
