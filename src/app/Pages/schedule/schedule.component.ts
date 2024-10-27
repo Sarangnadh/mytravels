@@ -653,8 +653,264 @@ constructor(private router:Router,private route:ActivatedRoute){}
       },
     ],
   },
+  // Jaipur, India
+  {
+    id: 10,
+    placename: "Jaipur, India",
+    des: "Discover the Pink City, Jaipur, where royal palaces and vibrant bazaars narrate the grandeur of Rajasthan.",
+    Img: "https://www.holidaymonk.com/wp-content/uploads/2022/03/Rajasthan.jpg",
+    airlines: [
+      {
+        airId: 1,
+        airlineName: "IndiGo",
+        img: "https://media-cdn.tripadvisor.com/media/photo-s/0e/cd/51/da/indigo.jpg",
+      },
+      {
+        airId: 2,
+        airlineName: "Air India",
+        img: "https://upload.wikimedia.org/wikipedia/en/thumb/1/14/Air_India_Logo.svg/1200px-Air_India_Logo.svg.png",
+      },
+      {
+        airId: 3,
+        airlineName: "Vistara",
+        img: "https://www.vistara.com/content/dam/vistara/img/logo.svg",
+      }
+    ],
+    mustvisit: [
+      {
+        mvid: 1,
+        mvname: "Hawa Mahal",
+        img: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Hawa_Mahal_2018.jpg/1200px-Hawa_Mahal_2018.jpg"
+      },
+      {
+        mvid: 2,
+        mvname: "Amber Fort",
+        img: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Amber_Fort.jpg/1200px-Amber_Fort.jpg"
+      },
+      {
+        mvid: 3,
+        mvname: "City Palace",
+        img: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/City_Palace_%28Jaipur%29_01.jpg/1200px-City_Palace_%28Jaipur%29_01.jpg"
+      }
+    ],
+    hotel: [
+      {
+        hid: 1,
+        star: "3star",
+        name: "Hotel Pearl Palace",
+        address: "Ajmer Road, Jaipur",
+        img: "https://media-cdn.tripadvisor.com/media/photo-s/0c/d1/23/34/exterior.jpg"
+      },
+      {
+        hid: 2,
+        star: "5star",
+        name: "Rambagh Palace",
+        address: "Bhagat Singh Road, Jaipur",
+        img: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Rambagh_Palace_02.jpg/1200px-Rambagh_Palace_02.jpg"
+      },
+      {
+        hid: 3,
+        star: "7star",
+        name: "Taj Rambagh Palace",
+        address: "Bhawani Singh Rd, Jaipur",
+        img: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Taj_Rambagh_Palace.jpg/1200px-Taj_Rambagh_Palace.jpg"
+      }
+    ],
+  },
+    // Kerala, India
+
+    {
+      "id": 11,
+      "placename": "Kerala, India",
+      "Img": "https://swastikholiday.com/blogs/img/images-5.jpg",
+      "airlines": [
+        {
+          "airlineName": "IndiGo",
+          "img": "https://media-cdn.tripadvisor.com/media/photo-s/0e/cd/51/da/indigo.jpg"
+        },
+        {
+          "airlineName": "Air India Express",
+          "img": "https://upload.wikimedia.org/wikipedia/en/3/36/Air_India_Express_logo.svg"
+        },
+        {
+          "airlineName": "SpiceJet",
+          "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPZZBgX2Mup0wpgI9VU4Dffhc1gzN_nqmoHg&s"
+        }
+      ],
+      "hotel": [
+        {
+          "hid": 1,
+          "star": "3star",
+          "name": "Hotel Hilltop",
+          "address": "Munnar, Kerala",
+          "img": "https://media-cdn.tripadvisor.com/media/photo-s/0e/cd/51/da/indigo.jpg"
+        },
+        {
+          "hid": 2,
+          "star": "5star",
+          "name": "Leela Kovalam",
+          "address": "Kovalam, Kerala",
+          "img": "https://cdn.theculturetrip.com/wp-content/uploads/2020/09/675b96de-4cda-4e71-9a36-209fb8e5050a.jpeg"
+        },
+        {
+          "hid": 3,
+          "star": "7star",
+          "name": "Kumarakom Lake Resort",
+          "address": "Kumarakom, Kerala",
+          "img": "https://cdn1.goibibo.com/voy_dyn_img/hotel/others/3155/2e2e5932d62d11ea817f5c40b49c9e1d.jpg"
+        }
+      ],
+      "mustvisit": [
+        {
+          "mvid": 1,
+          "mvname": "Backwaters of Alleppey",
+          "img": "https://upload.wikimedia.org/wikipedia/commons/e/e8/Alleppey_Backwaters.jpg"
+        },
+        {
+          "mvid": 2,
+          "mvname": "Munnar Tea Gardens",
+          "img": "https://upload.wikimedia.org/wikipedia/commons/0/06/Munnar_Tea_Gardens.jpg"
+        },
+        {
+          "mvid": 3,
+          "mvname": "Kumarakom Bird Sanctuary",
+          "img": "https://upload.wikimedia.org/wikipedia/commons/c/cf/Kumarakom_Bird_Sanctuary.jpg"
+        }
+      ]
+    }
+    ,
   
-    
+  
+  // Manali, India
+  {
+    id: 12,
+    placename: "Manali, India",
+    des: "Witness the majestic beauty of the Himalayas in Manali, a perfect getaway for nature and adventure lovers.",
+    Img: "https://yowydh.infiniteuploads.cloud/2024/10/Tourist-Places-In-Manali.jpg",
+    airlines: [
+      {
+        airId: 1,
+        airlineName: "IndiGo",
+        img: "https://media-cdn.tripadvisor.com/media/photo-s/0e/cd/51/da/indigo.jpg",
+      },
+      {
+        airId: 2,
+        airlineName: "Air India",
+        img: "https://upload.wikimedia.org/wikipedia/en/thumb/1/14/Air_India_Logo.svg/1200px-Air_India_Logo.svg.png",
+      },
+      {
+        airId: 3,
+        airlineName: "Vistara",
+        img: "https://www.vistara.com/content/dam/vistara/img/logo.svg",
+      }
+    ],
+    mustvisit: [
+      {
+        mvid: 1,
+        mvname: "Solang Valley",
+        img: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Solang_Valley_Mahabaleshwar.jpg/1200px-Solang_Valley_Mahabaleshwar.jpg"
+      },
+      {
+        mvid: 2,
+        mvname: "Hadimba Temple",
+        img: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Hadimba_Temple.jpg/1200px-Hadimba_Temple.jpg"
+      },
+      {
+        mvid: 3,
+        mvname: "Rohtang Pass",
+        img: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Rohtang_Pass.jpg/1200px-Rohtang_Pass.jpg"
+      }
+    ],
+    hotel: [
+      {
+        hid: 1,
+        star: "3star",
+        name: "Hotel Manali Inn",
+        address: "Manali, Himachal Pradesh",
+        img: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Hotel_Manali_Inn.jpg/1200px-Hotel_Manali_Inn.jpg"
+      },
+      {
+        hid: 2,
+        star: "5star",
+        name: "Span Resort & Spa",
+        address: "Manali, Himachal Pradesh",
+        img: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Span_Resort_%26_Spa.jpg/1200px-Span_Resort_%26_Spa.jpg"
+      },
+      {
+        hid: 3,
+        star: "7star",
+        name: "The Himalayan",
+        address: "Manali, Himachal Pradesh",
+        img: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/The_Himalayan.jpg/1200px-The_Himalayan.jpg"
+      }
+    ],
+  },
+  // Varanasi, India
+  {
+    id: 13,
+    placename: "Varanasi, India",
+    des: "Explore the spiritual essence of India in Varanasi, where ancient rituals meet the flow of the Ganges.",
+    Img: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0a/be/17/41/caption.jpg?w=1200&h=700&s=1",
+    airlines: [
+      {
+        airId: 1,
+        airlineName: "IndiGo",
+        img: "https://media-cdn.tripadvisor.com/media/photo-s/0e/cd/51/da/indigo.jpg",
+      },
+      {
+        airId: 2,
+        airlineName: "Air India",
+        img: "https://upload.wikimedia.org/wikipedia/en/thumb/1/14/Air_India_Logo.svg/1200px-Air_India_Logo.svg.png",
+      },
+      {
+        airId: 3,
+        airlineName: "Vistara",
+        img: "https://www.vistara.com/content/dam/vistara/img/logo.svg",
+      }
+    ],
+    mustvisit: [
+      {
+        mvid: 1,
+        mvname: "Kashi Vishwanath Temple",
+        img: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Kashi_Vishwanath_Temple.jpg/1200px-Kashi_Vishwanath_Temple.jpg"
+      },
+      {
+        mvid: 2,
+        mvname: "Dashashwamedh Ghat",
+        img: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Dashashwamedh_Ghat.jpg/1200px-Dashashwamedh_Ghat.jpg"
+      },
+      {
+        mvid: 3,
+        mvname: "Manikarnika Ghat",
+        img: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Manikarnika_Ghat.jpg/1200px-Manikarnika_Ghat.jpg"
+      }
+    ],
+    hotel: [
+      {
+        hid: 1,
+        star: "3star",
+        name: "Hotel Surya",
+        address: "Varanasi, Uttar Pradesh",
+        img: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Hotel_Surya.jpg/1200px-Hotel_Surya.jpg"
+      },
+      {
+        hid: 2,
+        star: "5star",
+        name: "Taj Ganges",
+        address: "Varanasi, Uttar Pradesh",
+        img: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Taj_Ganges_Varanasi.jpg/1200px-Taj_Ganges_Varanasi.jpg"
+      },
+      {
+        hid: 3,
+        star: "7star",
+        name: "BrijRama Palace",
+        address: "Varanasi, Uttar Pradesh",
+        img: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/BrijRama_Palace.jpg/1200px-BrijRama_Palace.jpg"
+      }
+    ],
+  }
+  
+  
 
   ]
 

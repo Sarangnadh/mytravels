@@ -16,7 +16,7 @@
 /* navbarlinks */
 .nav-link {
   color: black;  
-  font-size: 1.1rem; /* Slightly larger font size */
+  font-size: large; /* Slightly larger font size */
 }
 /* linkhover */
 .nav-link:hover {
