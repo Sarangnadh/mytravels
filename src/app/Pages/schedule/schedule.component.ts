@@ -744,7 +744,7 @@ constructor(private router:Router,private route:ActivatedRoute){}
       {
         airId: 1,
         airlineName: "Air India",
-        img: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Air_India_Logo.svg/1200px-Air_India_Logo.svg.png",
+        img: "https://aviationa2z.com/wp-content/uploads/2022/06/150914-airindia.jpg",
       },
       {
         airId: 2,
@@ -808,7 +808,7 @@ constructor(private router:Router,private route:ActivatedRoute){}
       {
         airId: 1,
         airlineName: "Air India",
-        img: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Air_India_Logo.svg/1200px-Air_India_Logo.svg.png",
+        img: "https://preview.redd.it/more-pics-of-the-air-india-a320-neo-in-the-new-livery-being-v0-5642sogf4k7d1.png?width=1080&crop=smart&auto=webp&s=8bfd97f6b5d66a5ada516c9f951867aefa334e6f",
       },
       {
         airId: 2,
@@ -872,7 +872,7 @@ constructor(private router:Router,private route:ActivatedRoute){}
       {
         airId: 1,
         airlineName: "Air India",
-        img: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Air_India_Logo.svg/1200px-Air_India_Logo.svg.png",
+        img: "https://images.travelandleisureasia.com/wp-content/uploads/sites/2/2024/06/18093850/Air-India-A320-Neo-1-1600x900.jpg",
       },
       {
         airId: 2,
@@ -936,7 +936,7 @@ constructor(private router:Router,private route:ActivatedRoute){}
       {
         airId: 1,
         airlineName: "Air India",
-        img: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Air_India_Logo.svg/1200px-Air_India_Logo.svg.png",
+        img: "https://aviationa2z.com/wp-content/uploads/2024/04/image-46.png",
       },
       {
         airId: 2,
@@ -1000,7 +1000,7 @@ constructor(private router:Router,private route:ActivatedRoute){}
       {
         airId: 1,
         airlineName: "Air India",
-        img: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Air_India_Logo.svg/1200px-Air_India_Logo.svg.png",
+        img: "https://img.etimg.com/thumb/width-1600,height-900,imgsize-62768,resizemode-75,msid-97971767/industry/transportation/airlines-/-aviation/air-india-places-orders-for-840-planes-including-option-to-buy-370-aircraft-says-official.jpg",
       },
       {
         airId: 2,
@@ -2363,7 +2363,7 @@ constructor(private router:Router,private route:ActivatedRoute){}
             star: "5star",
             name: "The Peninsula Tokyo",
             address: "1-8-1 Yurakucho, Chiyoda City, Tokyo, Japan",
-            img: "https://media-cdn.tripadvisor.com/media/photo-s/14/6b/06/a1/the-peninsula-tokyo.jpg",
+            img: "https://lh3.googleusercontent.com/p/AF1QipOqGy-qsWk6Mo5USax6CVioZJZaVEYwof1T0N70=s1360-w1360-h1020",
         },
         {
             hid: 2,
