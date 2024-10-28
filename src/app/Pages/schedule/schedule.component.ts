@@ -2320,9 +2320,6 @@ constructor(private router:Router,private route:ActivatedRoute){}
 {
     id: 35,
     placename: "Tokyo, Japan",
-    des: "Experience a fusion of traditional temples and cutting-edge technology in the bustling city of Tokyo.",
-    Img: "https://images.squarespace-cdn.com/content/v1/5bbcf00a9b8fe874ed2f03d0/1599184835862-QUEZ741IHO7A8U1QP8AI/Shinjuku+Tokyo+Japan+at+night",
-    link: '/schedule/35',
     mustvisit: [
         {
             mvid: 1,
@@ -2386,10 +2383,7 @@ constructor(private router:Router,private route:ActivatedRoute){}
 },
 {
     id: 36,
-    placename: "Riyadh, Saudi Arabia",
-    des: "Discover the rich history and modern marvels of Riyadh, from ancient forts to the futuristic Kingdom Centre.",
-    Img: "https://encrypted-tbn1.gstatic.com/licensed-image?q=tbn:ANd9GcQt4K7zqZPKpsIGSPSD3k4sgrrb2yWUG_Rl-F_kBQUZfRglDy3PrM535ufIlqnbXoAHho8ymV-6OlIgrth_goL8UPOuSNdMDoJsF_c98A",
-    link: '/schedule/36',
+    pname: "Riyadh, Saudi Arabia",
     mustvisit: [
         {
             mvid: 1,
