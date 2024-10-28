@@ -725,19 +725,19 @@ constructor(private router:Router,private route:ActivatedRoute){}
         mvid: 1,
         mvname: "Amber Fort",
         des: "Amber Fort is a magnificent palace located on a hilltop overlooking Maota Lake.",
-        img: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Amber_Fort.jpg/640px-Amber_Fort.jpg",
+        img: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/20191219_Fort_Amber%2C_Amer%2C_Jaipur_0955_9481.jpg/375px-20191219_Fort_Amber%2C_Amer%2C_Jaipur_0955_9481.jpg",
       },
       {
         mvid: 2,
         mvname: "Hawa Mahal",
         des: "Hawa Mahal, also known as the 'Palace of Winds', is a beautiful structure built with red and pink sandstone.",
-        img: "https://upload.wikimedia.org/wikipedia/commons/6/6e/Hawa_Mahal_Jaipur.jpg",
+        img: "https://encrypted-tbn1.gstatic.com/licensed-image?q=tbn:ANd9GcSgJ4Yw71uY4OTQ1wK5RdAll0AtxzWko7jSfoxl5kyxvISLPLZIIgGlDc3_f_eLWvAQ49LVeeQc3TC1l9hqP7DGfuBLqFW5a-JbhXBbab4",
       },
       {
         mvid: 3,
         mvname: "City Palace",
         des: "City Palace is a royal residence that showcases a blend of Mughal and Rajput architecture.",
-        img: "https://upload.wikimedia.org/wikipedia/commons/e/e0/City_Palace%2C_Jaipur.jpg",
+        img: "https://lh5.googleusercontent.com/p/AF1QipNrso0Rt9hap_Hu1doMpVUSaRHDIcdKBvgapHVo=w357-h240-n-k-no",
       },
     ],
     airlines: [
@@ -749,12 +749,12 @@ constructor(private router:Router,private route:ActivatedRoute){}
       {
         airId: 2,
         airlineName: "IndiGo",
-        img: "https://upload.wikimedia.org/wikipedia/commons/7/71/IndiGo_airline_logo.svg",
+        img: "https://www.logisticsinsider.in/wp-content/uploads/2023/06/a321-2022-06-1512_17_35.png.e26741c6b1fcd103955c136c8f868c97-1536x864-1.png",
       },
       {
         airId: 3,
         airlineName: "Vistara",
-        img: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Vistara_Airlines_Logo.svg/1200px-Vistara_Airlines_Logo.svg.png",
+        img: "https://www.livemint.com/lm-img/img/2024/08/14/1600x900/2-0-667156518-vistara2-0_1680246328850_1723627811221.JPG",
       },
     ],
     hotel: [
@@ -763,21 +763,21 @@ constructor(private router:Router,private route:ActivatedRoute){}
         star: "3star",
         name: "Hotel Pearl Palace",
         address: "51, Hathroi Fort, Hari Kishan Somani Marg, Jaipur, India",
-        img: "https://media-cdn.tripadvisor.com/media/photo-s/11/71/bd/83/hotel-pearl-palace.jpg",
+        img: "https://cf.bstatic.com/xdata/images/hotel/max1024x768/254753090.jpg?k=2fda2a725a9b04c7be603fb07533b1e0a1974cf1a78638b8b70fcedd2a1e5006&o=&hp=1",
       },
       {
         hid: 2,
-        star: "5star",
+        star: "7star",
         name: "Rambagh Palace",
         address: "Bhawani Singh Rd, Rambagh, Jaipur, India",
-        img: "https://www.tajhotels.com/content/dam/luxury/hotels/RambaghPalace/img_exterior_rambagh_palace_exterior_views_2x1.jpg",
+        img: "https://images.herzindagi.info/image/2023/May/rambagh-palace-in-jaipur-worlds-best-hotel.jpg",
       },
       {
         hid: 3,
         star: "7star",
         name: "Rajmahal Palace",
         address: "Sardar Patel Marg, C Scheme, Jaipur, India",
-        img: "https://media.cntraveler.com/photos/60cb04f82ae0f5895eec9478/master/w_4000,h_2667,c_limit/Rajmahal-Palace-Jaipur_2019_Rajmahal-Palace_Room-7--Aditi-Nina-Interiors.jpg",
+        img: "data:image/jpeg;base64,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",
       },
     ],
   },
@@ -941,12 +941,12 @@ constructor(private router:Router,private route:ActivatedRoute){}
       {
         airId: 2,
         airlineName: "IndiGo",
-        img: "https://upload.wikimedia.org/wikipedia/commons/7/71/IndiGo_airline_logo.svg",
+        img: "https://www.logisticsinsider.in/wp-content/uploads/2023/06/a321-2022-06-1512_17_35.png.e26741c6b1fcd103955c136c8f868c97-1536x864-1.png",
       },
       {
         airId: 3,
         airlineName: "SpiceJet",
-        img: "https://upload.wikimedia.org/wikipedia/commons/5/54/SpiceJet_logo.svg",
+        img: "https://swarajya.gumlet.io/swarajya/2019-04/98546670-4261-4e86-b404-c8441f111254/800px_SpiceJet_aircraft_at_Varanasi_Airport.jpg?w=610&q=50&compress=true&format=auto",
       },
     ],
     hotel: [
@@ -1005,7 +1005,7 @@ constructor(private router:Router,private route:ActivatedRoute){}
       {
         airId: 2,
         airlineName: "Vistara",
-        img: "https://upload.wikimedia.org/wikipedia/en/4/4c/Vistara_Logo.svg",
+        img: "https://www.airvistara.com/content/dam/airvistara/global/english/home-page/extras/vistara-select-2.webp",
       },
       {
         airId: 3,
