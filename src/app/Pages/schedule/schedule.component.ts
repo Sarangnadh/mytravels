@@ -2319,7 +2319,7 @@ constructor(private router:Router,private route:ActivatedRoute){}
 },
 {
     id: 35,
-    placename: "Tokyo, Japan",
+    pname: "Tokyo, Japan",
     mustvisit: [
         {
             mvid: 1,
