@@ -10,9 +10,11 @@ import { NgModule } from '@angular/core';
 import { BookingComponent } from './Pages/booking/booking.component';
 import { SlotconfirmComponent } from './Pages/slotconfirm/slotconfirm.component';
 import { ExploreComponent } from './Pages/explore/explore.component';
+import { RegisterComponent } from './Pages/register/register.component';
 
 export const routes: Routes = [
     {path:"login",component:LoginComponent},
+    {path:"register",component:RegisterComponent},
     {path:"",component:HomepageComponent},
     {path:"about",component:AboutComponent},
     {path:"services",component:ServicesComponent},
