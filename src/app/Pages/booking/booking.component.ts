@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators ,AbstractControl, ValidationErrors, ValidatorFn,} from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
+import { ServicesService } from '../../Services/services.service';
 
 @Component({
   selector: 'app-booking',
@@ -17,7 +18,7 @@ export class BookingComponent implements OnInit {
   
   bookingForm!:FormGroup
  
-  constructor(private router: Router, private route: ActivatedRoute,private fb:FormBuilder) { }
+  constructor(private router: Router, private route: ActivatedRoute,private fb:FormBuilder,private service:ServicesService) { }
 
   ngOnInit(): void {
    this.bookingForm=this.fb.group({
@@ -114,16 +115,40 @@ export class BookingComponent implements OnInit {
     }
     return null;
   }
+
+
 booking(){
- 
-    this.router.navigateByUrl("main")
+     this.router.navigateByUrl("slotconfirm")
     console.log(this.bookingForm.value);
-  
+  var customerName  = this.bookingForm.value.CustomerName
+  var from =this.bookingForm.value.from
+  var destination = this.bookingForm.value.destination
+  var selectDate = this.bookingForm.value.selectDate
+  var returnDate = this.bookingForm.value.returnDate
+  var countPeople = this.bookingForm.value.countPeople
+  var selectedHotel = this.bookingForm.value.selectedHotel
+  var selectedFlight =this.bookingForm.value.selectedFlight
  
-  
+  const result =this.service.bookingconfirm(customerName,from,destination,selectDate,returnDate,countPeople,selectedHotel,selectedFlight)
+
+  if (this.bookingForm.valid) {
+    if (result) {
+        alert(customerName + ", your flight from " + from + " to " + destination + " has been confirmed!");
+        this.router.navigateByUrl('Home/BookingDetails'); // Redirect to booking details page
+        console.log(this.service.db); // For debugging
+    }
+} else {
+    alert("Invalid Booking Form");
 }
 
 }
+
+
+
+
+}
+
+
 
 
 

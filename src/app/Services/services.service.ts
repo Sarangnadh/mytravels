@@ -5,18 +5,11 @@ import { Injectable } from '@angular/core';
 })
 export class ServicesService {
   db: any = {
-    " starkindu@gmail.com": { "fullname": "Sarang", "email": "starkindu@gmail.com", "mobno": 8301056189, "password": 12345678, },
+    " starkindu@gmail.com": { "fullname": "Sarang", "email": "starkindu@gmail.com", "mobno": 8301056189, "password": 12345678,"booking":[] },
 
 
   }
-
-
   constructor() { }
-
-
-
- 
-
  
 
 
@@ -68,7 +61,14 @@ export class ServicesService {
   }
 
 
+  bookingconfirm(customerName:any, from:any,destination:any,selectedDate:any,returnDate:any,countpeople:any,selectedHotel:any,selectedFlight:any)
+  {
+    
+  }
+  
+  }
 
 
 
-}
+
+

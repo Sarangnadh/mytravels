@@ -40,3 +40,37 @@
     
       <!-- status -->
       <app-status></app-status>
+
+
+  <div class="text-center gtco-heading">
+    <h2 class="text-center text-blue">Airline Customer Care Services</h2>
+
+<div class="airline-container">
+    <div *ngFor="let airline of airlines" class="airline-card">
+        <!-- Airline Banner -->
+        <div class="banner-container">
+            <img [src]="airline.banner" alt="Airline Banner" class="airline-image">
+        </div>
+        
+        <!-- Airline Logo -->
+        <div class="logo-container">
+            <img [src]="airline.logo" alt="Airline Logo" class="airline-logo">
+        </div>
+
+        <!-- Airline Title -->
+        <h2 class="airline-title">{{ airline.name }}</h2>
+        <p class="airline-description">{{ airline.description }}</p>
+      
+        <!-- Service Grid (2x2) -->
+        <div class="service-grid">
+            <div *ngFor="let service of airline.services" class="service-item">
+                <img [src]="service.img" alt="{{ service.title }}" class="service-image">
+                <h3 class="service-title">{{ service.title }}</h3>
+                <p class="service-description">{{ service.description }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+<div>

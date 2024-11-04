@@ -32,9 +32,10 @@ Login(){
 
   if (result) {
     alert("Login Successful")
-      this.router.navigateByUrl('Home')
+      this.router.navigateByUrl('explore')
     console.log(this.ds.db);
     
   }
 }
+
 }
