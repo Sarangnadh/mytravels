@@ -131,15 +131,7 @@ booking(){
  
   const result =this.service.bookingconfirm(customerName,from,destination,selectDate,returnDate,countPeople,selectedHotel,selectedFlight)
 
-  if (this.bookingForm.valid) {
-    if (result) {
-        alert(customerName + ", your flight from " + from + " to " + destination + " has been confirmed!");
-        this.router.navigateByUrl('Home/BookingDetails'); // Redirect to booking details page
-        console.log(this.service.db); // For debugging
-    }
-} else {
-    alert("Invalid Booking Form");
-}
+ 
 
 }
 
