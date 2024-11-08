@@ -11,6 +11,21 @@
                 
             </div>
             <div *ngIf="bookingForm.get('CustomerName')?.hasError('pattern') && bookingForm.get('CustomerName')?.touched" style="color: red;">Invalid Name</div>
+           <!-- note -->
+           <p class="note">Note: Enter the linked email or mobile number for this account.</p>
+           <!-- Email -->
+            <div class="form-group mt-3" >
+                <label for="email">Email</label>
+                <input type="text" id="email" class="form-control" name="email" formControlName="email"  required>
+                </div>
+                <div *ngIf="this.bookingForm.get('email')?.errors&&this.bookingForm.get('email')?.touched " style="color:red;">Please Enter the correct Email</div>
+            <!-- mobno -->
+            <div class="form-group mt-3" >
+                <label for="mobno">Phone Number</label>
+                <input type="text" id="mobno" class="form-control" name="mobno" formControlName="mobno"  required>
+                </div>
+                <div *ngIf="this.bookingForm.get('mobno')?.errors&&this.bookingForm.get('mobno')?.touched " style="color:red;">Please Enter the correct Number</div>
+
             <!-- from -->
             <div class="form-group mt-3" >
                 <label for="destination">From</label>
@@ -98,13 +113,38 @@
 
             
             <!-- Submit Button -->
-            <button type="submit" class="btn btn-primary mt-4" [disabled]="">
-                Submit
-            </button>
+         
         </form>
+        <button type="submit" class="btn btn-primary mt-4" [disabled]="" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Submit
+        </button>
     </div>
 
-
-
-
 </div>
+
+
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <label for="confirmpassword">Enter  your Password to Confirm the Trip</label>
+            <div class="mb-3">
+                <input type="text" name="password" formControlName="password" class="form-control bg-body-secondary" placeholder=" Password"  id="userpswd" required>
+                <div *ngIf="this.bookingForm.get('password')?.errors&&this.bookingForm.get('password')?.touched " style="color:red;">Please Enter the Password</div>
+            
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-success" data-bs-dismiss="modal" (click)="booking()">Confirm</button>
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -10,7 +10,22 @@ export class ServicesService {
 
   }
   constructor() { }
- 
+  // save details
+  saveInfo(){
+    if(this.db){
+      localStorage.setItem("database",JSON.stringify(this.db))
+
+    }
+  }
+
+
+
+//  getdetails
+  getInfo(){
+    if(localStorage.getItem("database")){
+      this.db =JSON.parse(localStorage.getItem("database") || '')
+    }
+  }
 
 
 
@@ -51,17 +66,19 @@ export class ServicesService {
         email,
         mobno,
         password,
+        booking:[],
+        contactUs:[],
 
       }
       console.log(db);
-      // this.saveDetails()
+      this.saveInfo()
       return true
 
     }
   }
 
 
-  bookingconfirm(customerName:any, from:any,destination:any,selectedDate:any,returnDate:any,countpeople:any,selectedHotel:any,selectedFlight:any)
+  bookingconfirm(customerName:any,email:any,mobno:any, password:any,tripInfo:any)
   {
     
   }

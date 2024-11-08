@@ -23,6 +23,8 @@ export class BookingComponent implements OnInit {
   ngOnInit(): void {
    this.bookingForm=this.fb.group({
     CustomerName:['',[Validators.required,Validators.minLength(3),Validators.pattern('^[a-zA-Z]+$')]],
+    email: ['', [Validators.required, Validators.email]],
+    mobno: ['', [Validators.required, Validators.pattern('[0-9]{10}')]], 
     from:['',Validators.required],
     destination:['',Validators.required],
     selectDate:['',[Validators.required,this.noPastDateValidator()]],
@@ -121,15 +123,19 @@ booking(){
      this.router.navigateByUrl("slotconfirm")
     console.log(this.bookingForm.value);
   var customerName  = this.bookingForm.value.CustomerName
-  var from =this.bookingForm.value.from
-  var destination = this.bookingForm.value.destination
-  var selectDate = this.bookingForm.value.selectDate
-  var returnDate = this.bookingForm.value.returnDate
-  var countPeople = this.bookingForm.value.countPeople
-  var selectedHotel = this.bookingForm.value.selectedHotel
-  var selectedFlight =this.bookingForm.value.selectedFlight
- 
-  const result =this.service.bookingconfirm(customerName,from,destination,selectDate,returnDate,countPeople,selectedHotel,selectedFlight)
+  var email =this.bookingForm.value.email
+  var mobno =this.bookingForm.value.mobno
+  var password =this.bookingForm.value.password
+  const tripInfo ={
+  from :this.bookingForm.value.from,
+  destination:this.bookingForm.value.destination,
+  selectDate :this.bookingForm.value.selectDate,
+  returnDate : this.bookingForm.value.returnDate,
+  countPeople : this.bookingForm.value.countPeople,
+  selectedHotel : this.bookingForm.value.selectedHotel,
+  selectedFlight :this.bookingForm.value.selectedFlight,
+  }
+  const result =this.service.bookingconfirm(customerName,email,mobno,password,tripInfo)
 
  
 

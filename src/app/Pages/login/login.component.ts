@@ -24,7 +24,6 @@ constructor(private fb:FormBuilder,private router:Router,private ds:ServicesServ
 }
 
 Login(){
-  // console.log(this.login.value);
   var email = this.login.value.email
   var password = this.login.value.password
 
