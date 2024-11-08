@@ -120,7 +120,7 @@ export class BookingComponent implements OnInit {
 
 
 booking(){
-     this.router.navigateByUrl("slotconfirm")
+     this.router.navigateByUrl("main")
     console.log(this.bookingForm.value);
   var customerName  = this.bookingForm.value.CustomerName
   var email =this.bookingForm.value.email
