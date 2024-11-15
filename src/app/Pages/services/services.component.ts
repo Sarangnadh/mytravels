@@ -19,18 +19,18 @@ export class ServicesComponent implements OnInit {
   }
 
   airlines = [
-    {
-      name: 'Vistara',
-      logo: 'https://content.jdmagicbox.com/v2/comp/mumbai/r1/022pxx22.xx22.170420093852.v6r1/catalogue/vistara-customer-care--mumbai-grwte.jpg',
-      banner: 'https://www.informalnewz.com/wp-content/uploads/2022/10/Vistara-Announces-Festive-720x720.jpg',
-      description: 'Founded in 2015, Vistara is known for excellent service in Indian aviation.',
-      services: [
-        { title: 'Cabin Crew Care', img: 'https://i.ytimg.com/vi/JiCzm2bKW-I/maxresdefault.jpg?sqp=-oaymwEmCIAKENAF8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGEUgPSh_MA8=&rs=AOn4CLAdX-82yAI1xrV8A6vSxn8FD21M0g', description: 'Friendly and attentive cabin crew.' },
-        { title: 'Ground Staff Care', img: 'https://www.airvistara.com/content/dam/airvistara/global/english/plan-travel/optionalservices/images/VISTARA-PRIORITY-OCT20.jpg', description: 'Efficient and helpful ground staff.' },
-        { title: 'Customer Care', img: 'https://www.airvistara.com/content/dam/airvistara/global/english/careers/images/2022/Industry-leader.jpg', description: '24/7 support for all travel needs.' },
-        { title: 'Food & Specialties', img: 'https://vistaramagazine.com/wp-content/uploads/2022/05/Vistara-Inflight-dining.jpg', description: 'Delicious meals and snacks.' }
-      ]
-    },
+    // {
+    //   name: 'Vistara',
+    //   logo: 'https://content.jdmagicbox.com/v2/comp/mumbai/r1/022pxx22.xx22.170420093852.v6r1/catalogue/vistara-customer-care--mumbai-grwte.jpg',
+    //   banner: 'https://www.informalnewz.com/wp-content/uploads/2022/10/Vistara-Announces-Festive-720x720.jpg',
+    //   description: 'Founded in 2015, Vistara is known for excellent service in Indian aviation.',
+    //   services: [
+    //     { title: 'Cabin Crew Care', img: 'https://i.ytimg.com/vi/JiCzm2bKW-I/maxresdefault.jpg?sqp=-oaymwEmCIAKENAF8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGEUgPSh_MA8=&rs=AOn4CLAdX-82yAI1xrV8A6vSxn8FD21M0g', description: 'Friendly and attentive cabin crew.' },
+    //     { title: 'Ground Staff Care', img: 'https://www.airvistara.com/content/dam/airvistara/global/english/plan-travel/optionalservices/images/VISTARA-PRIORITY-OCT20.jpg', description: 'Efficient and helpful ground staff.' },
+    //     { title: 'Customer Care', img: 'https://www.airvistara.com/content/dam/airvistara/global/english/careers/images/2022/Industry-leader.jpg', description: '24/7 support for all travel needs.' },
+    //     { title: 'Food & Specialties', img: 'https://vistaramagazine.com/wp-content/uploads/2022/05/Vistara-Inflight-dining.jpg', description: 'Delicious meals and snacks.' }
+    //   ]
+    // },
     {
       name: 'Air India',
       logo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5K9GkjE7b0_NT0NiXSYhHVSrqElEZnL0veQ&s',

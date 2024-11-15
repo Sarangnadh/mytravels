@@ -9,7 +9,7 @@ import { ScheduleComponent } from '../schedule/schedule.component';
 @Component({
   selector: 'app-homepage',
   standalone: true,
-  imports: [NavbarComponent, StatusComponent,CommonModule,RouterModule],
+  imports: [ StatusComponent,CommonModule,RouterModule],
   templateUrl: './homepage.component.html',
   styleUrl: './homepage.component.css'
 })

@@ -66,8 +66,10 @@ constructor(private router:Router,private route:ActivatedRoute){}
         },
         {
           airId:2,
-          airlineName:"Vistara",
-          img:"https://static1.simpleflyingimages.com/wordpress/wp-content/uploads/2022/01/6.jpg?q=50&fit=crop&w=1100&h=618&dpr=1.5"
+          airlineName: "IndiGo",
+        img: "https://media-cdn.tripadvisor.com/media/photo-s/0e/cd/51/da/indigo.jpg",
+          // airlineName:"Vistara",
+          // img:"https://static1.simpleflyingimages.com/wordpress/wp-content/uploads/2022/01/6.jpg?q=50&fit=crop&w=1100&h=618&dpr=1.5"
         },
         {
           airId:3,
@@ -284,8 +286,8 @@ constructor(private router:Router,private route:ActivatedRoute){}
     airlines: [
       {
         airId: 1,
-        airlineName: "AirAsia",
-        img: "https://walawalapictures.com/wp-content/uploads/2020/05/AirAsia_cabin_crew_04_Logo.jpg",
+         airlineName:"AirIndiaExpress",
+          img:"https://images.deccanherald.com/deccanherald%2F2023-10%2F9f700582-5aef-4ea3-a684-86b2d6d04df9%2FPTI10_18_2023_000429B.jpg?auto=format%2Ccompress&fmt=webp&fit=max&format=webp&q=70&w=900&dpr=1.3"
       },
       {
         airId: 2,
