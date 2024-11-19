@@ -4,18 +4,29 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ServicesService {
-  db: any = {
-    " starkindu@gmail.com": { "fullname": "Sarang", "email": "starkindu@gmail.com", "mobno": 8301056189, "password": 12345678,"booking":[] },
+  username:any
+  cutomerMail:any
+db: any = {
+    "starkindu@gmail.com": { "fullname": "Sarang", "email": "starkindu@gmail.com", "mobno": 8301056189, "password": 12345678,"booking":[] },
 
 
   }
-  constructor() { }
+  constructor() { 
+    this.getInfo()
+  }
   // save details
   saveInfo(){
     if(this.db){
       localStorage.setItem("database",JSON.stringify(this.db))
-
     }
+
+    if(this.db){
+      localStorage.setItem("username",JSON.stringify(this.db))
+    }
+if(this.db){
+  localStorage.setItem("cutomerMail",JSON.stringify(this.db))
+}
+  
   }
 
 
@@ -24,6 +35,12 @@ export class ServicesService {
   getInfo(){
     if(localStorage.getItem("database")){
       this.db =JSON.parse(localStorage.getItem("database") || '')
+    }
+    if(localStorage.getItem("username")){
+      this.username =JSON.parse(localStorage.getItem("username") || '')
+    }
+    if(localStorage.getItem("customerMail")){
+      this.cutomerMail =JSON.parse(localStorage.getItem("customerMail") || '')
     }
   }
 
@@ -37,9 +54,9 @@ export class ServicesService {
 
     if (email in db) {
       if (password == db[email]["password"]) {
-        // this.customerName = db[mobno]["username"]
-        // this.customerMobno = mobno
-        // this.saveDetails()
+        this.username = db[email]["fullname"]
+         this.cutomerMail = email
+        this.saveInfo()
         return true
       }
       else {

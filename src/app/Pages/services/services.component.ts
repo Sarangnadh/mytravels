@@ -7,7 +7,7 @@ import { RouterModule } from '@angular/router';
 @Component({
   selector: 'app-services',
   standalone: true,
-  imports: [FooterComponent, StatusComponent,CommonModule,RouterModule],
+  imports: [ StatusComponent,CommonModule,RouterModule],
   templateUrl: './services.component.html',
   styleUrl: './services.component.css'
 })

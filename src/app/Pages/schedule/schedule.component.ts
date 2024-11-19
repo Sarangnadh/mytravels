@@ -86,35 +86,8 @@ constructor(private router:Router,private route:ActivatedRoute){}
           address:"Baman Vaddo, Candolim, Bardez, Goa 403515",
           img: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0a/a0/d8/ea/dusk.jpg?w=700&h=-1&s=1",
         },
-        {
-          hid2:2,
-          star: "3Star",
-          address:"The Ocean Park Resort",
-          name: "Casa Albuquerque ",
-          img: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0b/9b/85/91/facade.jpg?w=700&h=-1&s=1"
-
-        },
-        {
-          hid:3,
-          star: "3star",
-          name: "The Baga Marina Beach Resort & Hotel",
-          address:"Saunta Khobra Wado, Baga, Calangute, Goa 403516",
-          img: "https://content.jdmagicbox.com/comp/goa/x2/0832px832.x832.120411121039.f5x2/catalogue/the-baga-marina-beach-resort-bardez-goa-beach-resorts-1i2mrpjuzs.jpg",
-        },
-        {
-          hid:4,
-          star: "3star",
-          name: "Resort De Coracao",
-          address:" Gaura Waddo, Calangute Beach, Calangute, Goa 403516",
-          img: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/18/f4/96/e5/hotel-exterior-evening.jpg?w=700&h=-1&s=1",
-        },
-        {
-          hid:5,
-          star: "3star",
-          name: "Sharanam Green Resort",
-          address:" Near Calangute Beach, Anna Waddo, Calangute, Goa 403516",
-          img: "https://q-xx.bstatic.com/xdata/images/hotel/max500/324921465.jpg?k=348f951ac0b2f91fe39df081fb6ae45f4930093acaada83853389cae4909b36c&o=",
-        },
+      
+       
         // 5star
         {
           hid:6,
@@ -130,28 +103,7 @@ constructor(private router:Router,private route:ActivatedRoute){}
           address:"Calwaddo, Benaulim, Salcette, Goa 403716",
           img: "https://cf.bstatic.com/xdata/images/hotel/max1024x768/70096978.jpg?k=9128f3db632d0ab97cef32032fa0f225ac47114b23ec6498d3721bef92564312&o=&hp=1",
         },
-        {
-          hid:8,
-          star: "5star",
-          name: "Park Hyatt Goa Resort and Spa",
-          address:"Arossim Beach, Cansaulim, South Goa 403712",
-          img: "https://media.cntraveler.com/photos/53dacf436dec627b14a041fe/16:9/w_2560%2Cc_limit/park-hyatt-goa-resort-and-spa-goa-india-108526-4.jpg",
-        },
-      
-        {
-          hid:9,
-          star: "5star",
-          name: "ITC Grand Goa Resort & Spa",
-          address:"Arossim Beach, Cansaulim, Goa 403712",
-          img: "https://www.itchotels.com/content/dam/itchotels/in/umbrella/itc/hotels/itcgrandgoa-goa/images/overview/headmast-desktop/resort-outdoors.png",
-        },
-        {
-          hid:10,
-          star: "5star",
-          name: "Alila Diwa Goa",
-          address:"48/10, Village Majorda, Adao Waddo",
-          img: "https://assets.hyatt.com/content/dam/hyatt/hyattdam/images/2019/02/14/0827/Alila-Diwa-Goa-P001-Exterior-Panorama.jpg/Alila-Diwa-Goa-P001-Exterior-Panorama.16x9.jpg",
-        },
+       
        
         // seven star
         {
@@ -175,20 +127,8 @@ constructor(private router:Router,private route:ActivatedRoute){}
           address: "P.O. Goa University, Bambolim, Goa 403206",
           img: "https://cf.bstatic.com/xdata/images/hotel/max1024x768/330281475.jpg?k=8a8327ac1d4e38831b091c30085c5ee3951f0827073a79269a3fee5462a8112c&o=&hp=1",
         },
-        {
-          hid:14,
-          star: "7star",
-          name: "The Postcard Cuelim",
-          address:"Cuelim, Goa 403712",
-          img: "https://www.myboutiquehotel.com/photos/111703/the-postcard-cuelim-goa-cansaulim-001-59391-1110x700.jpg",
-        },
-        {
-          hid:15,
-          star: "5star",
-          name: "Taj Fort Aguada Resort & Spa",
-          address:"Sinquerim, Candolim, Goa 403515",
-          img: "https://cf.bstatic.com/xdata/images/hotel/max1024x768/206386163.jpg?k=87d7f3d3eae1040e22ccf31da1c9ac9a9e1e27ea520ee15ebfcc507202bef18f&o=&hp=1",
-        },
+        
+       
       ],
    
 
