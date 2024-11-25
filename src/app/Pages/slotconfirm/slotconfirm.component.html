@@ -3,11 +3,19 @@
     <div class="confirmation-message">
      
       <h1>Your Booking is Confirmed!</h1>
-<p>
-    Get ready for an amazing journey with Dash Airlines! <br>
+<!-- <p>
+    Get ready for an amazing journey with {{tripDetails.Airline}}! <br>
     Our team will reach out soon with all the details you need. <br>
     For any questions or assistance, feel free to contact our customer care.
+</p> -->
+<p>
+  Dear {{ customerName }}, <br>
+  Get ready for an amazing journey with {{ tripDetails.Airline }}! <br>
+  Your trip from {{ tripDetails.From}} to {{ tripDetails.Destination }} is all set.<br>
+  Our team will reach out soon with all the details you need. <br>
+  For any questions or assistance, feel free to contact our customer care.
 </p>
+
 
     </div>
   </div>

@@ -138,12 +138,21 @@ booking(){
   }
   const result = this.service.bookingconfirm(customerName,email,mobno,password,tripInfo,preferences)
 
- if(this.bookingForm.valid){
+ if(!this.bookingForm.valid){
 
   console.log(this.bookingForm.value);
   if(result){
      alert(`${customerName}, your Trip from ${tripInfo.from} to ${tripInfo.destination}  has been confirmed! Enjoy the Journey with ${preferences.selectedFlight}  `)
-     this.router.navigateByUrl("main")
+     this.router.navigate(["/slotconfirm"],{
+      queryParams:{
+      UserName:customerName,
+      From:tripInfo.from,
+      Destination:tripInfo.destination,
+      Airline:preferences.selectedFlight
+
+      }
+     })
+
      console.log(this.service.db);  
   } 
   
