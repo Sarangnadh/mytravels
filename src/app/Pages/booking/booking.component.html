@@ -2,7 +2,7 @@
     <div class="container mt-5">
         <h2 class="text-center">Schedule Your Trip</h2>
 
-        <form  [formGroup]="bookingForm" (ngSubmit)="booking()" >
+        <form  [formGroup]="bookingForm"  >
             <!-- Name -->
             <div class="form-group">
                 <label for="CustomerName">Name</label>
@@ -110,12 +110,15 @@
                 </select>         
             </div>
             <div *ngIf="bookingForm.get('selectedFlight')?.hasError('required') && bookingForm.get('selectedFlight') && bookingForm.get('selectedFlight')?.touched " style="color: red;">Please Select a Airline</div>
-
-            
+            <div class="form-group mt-3">
+              <label for="confirmpassword">Enter  your Password to Confirm the Trip</label>
+              <input type="text" name="password" formControlName="password" class="form-control bg-body-secondary" placeholder=" Password"  id="userpswd" required>         
+            </div>
+            <div *ngIf="this.bookingForm.get('password')?.errors&&this.bookingForm.get('password')?.touched " style="color:red;">Please Enter the Password</div>
             <!-- Submit Button -->
          
         </form>
-        <button type="submit" class="btn btn-primary mt-4" [disabled]="" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <button type="submit" class="btn btn-primary mt-4" (click)="booking()" >
             Submit
         </button>
     </div>
@@ -125,26 +128,4 @@
 
 
   
-  <!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-            <label for="confirmpassword">Enter  your Password to Confirm the Trip</label>
-            <div class="mb-3">
-                <input type="text" name="password" formControlName="password" class="form-control bg-body-secondary" placeholder=" Password"  id="userpswd" required>
-                <div *ngIf="this.bookingForm.get('password')?.errors&&this.bookingForm.get('password')?.touched " style="color:red;">Please Enter the Password</div>
-            
-            </div>
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-success" data-bs-dismiss="modal" (click)="booking()">Confirm</button>
-          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
-        </div>
-      </div>
-    </div>
-  </div>
+  

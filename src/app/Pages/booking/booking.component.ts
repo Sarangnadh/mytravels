@@ -24,13 +24,14 @@ export class BookingComponent implements OnInit {
    this.bookingForm=this.fb.group({
     CustomerName:['',[Validators.required,Validators.minLength(3),Validators.pattern('^[a-zA-Z]+$')]],
     email: ['', [Validators.required, Validators.email]],
-    mobno: ['', [Validators.required, Validators.pattern('[0-9]{10}')]], 
+    mobno: ['', [Validators.required, Validators.pattern('[0-9]{10}')]],
+    password:['',[Validators.required, Validators.pattern('^[a-zA-Z0-9]*$'), Validators.minLength(6),Validators.maxLength(12) ]], 
     from:['',Validators.required],
     destination:['',Validators.required],
     selectDate:['',[Validators.required,this.noPastDateValidator()]],
     returnDate:['',[Validators.required,this.noPastDateValidator()]],
     countPeople:['',[Validators.required,Validators.min(1),Validators.max(10)]],
-    selectedHotel: ['',Validators.required,this.hotelValidator.bind(this)],
+    selectedHotel: ['',[Validators.required,this.hotelValidator.bind(this)]],
     selectedFlight: ['',[Validators.required,this.airlineValidator.bind(this)]]
    }, {
     validators: [this.dateDifferenceValidator()]
@@ -120,8 +121,6 @@ export class BookingComponent implements OnInit {
 
 
 booking(){
-     this.router.navigateByUrl("main")
-    console.log(this.bookingForm.value);
   var customerName  = this.bookingForm.value.CustomerName
   var email =this.bookingForm.value.email
   var mobno =this.bookingForm.value.mobno
@@ -132,19 +131,34 @@ booking(){
   selectDate :this.bookingForm.value.selectDate,
   returnDate : this.bookingForm.value.returnDate,
   countPeople : this.bookingForm.value.countPeople,
+  }
+  const preferences ={
   selectedHotel : this.bookingForm.value.selectedHotel,
   selectedFlight :this.bookingForm.value.selectedFlight,
   }
-  const result =this.service.bookingconfirm(customerName,email,mobno,password,tripInfo)
+  const result = this.service.bookingconfirm(customerName,email,mobno,password,tripInfo,preferences)
 
- 
+ if(this.bookingForm.valid){
+
+  console.log(this.bookingForm.value);
+  if(result){
+     alert(`${customerName}, your Trip from ${tripInfo.from} to ${tripInfo.destination}  has been confirmed! Enjoy the Journey with ${preferences.selectedFlight}  `)
+     this.router.navigateByUrl("main")
+     console.log(this.service.db);  
+  } 
+  
+ }
+ else{
+  alert("Invalid form")
 
 }
 
 
-
+}
 
 }
+
+
 
 
 

@@ -7,7 +7,7 @@ export class ServicesService {
   username:any
   cutomerMail:any
 db: any = {
-    "starkindu@gmail.com": { "fullname": "Sarang", "email": "starkindu@gmail.com", "mobno": 8301056189, "password": 12345678,"booking":[] },
+    "starkindu@gmail.com": { fullname: "Sarang", email: "starkindu@gmail.com", mobno: 8301056189, password: 12345678,booking:[] },
 
 
   }
@@ -95,14 +95,34 @@ if(this.db){
   }
 
 
-  bookingconfirm(customerName:any,email:any,mobno:any, password:any,tripInfo:any)
+  bookingconfirm(customerName:any,email:any,mobno:any, password:any,tripInfo:any ,preferences:any)
   {
-    
+    let db =this.db
+    if(email in db)
+    {
+      if(password ==db[email]["password"]){
+        db[email]["booking"].push({
+          FullName: customerName,
+          Mobile: mobno,
+          From: tripInfo.from,
+          Destination: tripInfo.destination,
+          DepartureDate: tripInfo.selectDate,
+          ReturnDate: tripInfo.returnDate,
+          CountPeople: tripInfo.countPeople,
+          SelectedHotel: preferences.selectedHotel,
+          SelectedFlight: preferences.selectedFlight,
+        })
+        this.saveInfo()
+        return db[email]["booking"]
+      }
+      else{
+        alert("Incorrect Password")
+        return false
+      }
+    }
+    else{
+      alert("User does not exist")
+      return false
+    }
   }
-  
-  }
-
-
-
-
-
+}
