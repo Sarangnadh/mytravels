@@ -1,13 +1,13 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators ,AbstractControl, ValidationErrors, ValidatorFn,} from '@angular/forms';
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators, AbstractControl, ValidationErrors, ValidatorFn, } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ServicesService } from '../../Services/services.service';
 
 @Component({
   selector: 'app-booking',
   standalone: true,
-  imports: [CommonModule, FormsModule,ReactiveFormsModule],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule],
   templateUrl: './booking.component.html',
   styleUrl: './booking.component.css'
 })
@@ -15,26 +15,26 @@ export class BookingComponent implements OnInit {
   selectedSchedule: any = {};   // This will hold the data passed from the previous page
   hotels: any[] = []; // Create an array to hold the hotel data
   flights: any[] = [];
-  
-  bookingForm!:FormGroup
- 
-  constructor(private router: Router, private route: ActivatedRoute,private fb:FormBuilder,private service:ServicesService) { }
+
+  bookingForm!: FormGroup
+
+  constructor(private router: Router, private route: ActivatedRoute, private fb: FormBuilder, private service: ServicesService) { }
 
   ngOnInit(): void {
-   this.bookingForm=this.fb.group({
-    CustomerName:['',[Validators.required,Validators.minLength(3),Validators.pattern('^[a-zA-Z]+$')]],
-    email: ['', [Validators.required, Validators.email]],
-    mobno: ['', [Validators.required, Validators.pattern('[0-9]{10}')]],
-    password:['',[Validators.required, Validators.pattern('^[a-zA-Z0-9]*$'), Validators.minLength(6),Validators.maxLength(12) ]], 
-    from:['',Validators.required],
-    destination:['',Validators.required],
-    selectDate:['',[Validators.required,this.noPastDateValidator()]],
-    returnDate:['',[Validators.required,this.noPastDateValidator()]],
-    countPeople:['',[Validators.required,Validators.min(1),Validators.max(10)]],
-    selectedHotel: ['',[Validators.required,this.hotelValidator.bind(this)]],
-    selectedFlight: ['',[Validators.required,this.airlineValidator.bind(this)]]
-   }, {
-    validators: [this.dateDifferenceValidator()]
+    this.bookingForm = this.fb.group({
+      CustomerName: ['', [Validators.required, Validators.minLength(3), Validators.pattern('^[a-zA-Z ]+$')]],
+      email: ['', [Validators.required, Validators.email]],
+      mobno: ['', [Validators.required, Validators.pattern('[0-9]{10}')]],
+      password: ['', [Validators.required, Validators.pattern('^[a-zA-Z0-9]*$'), Validators.minLength(6), Validators.maxLength(12)]],
+      from: ['', Validators.required],
+      destination: ['', Validators.required],
+      selectDate: ['', [Validators.required, this.noPastDateValidator()]],
+      returnDate: ['', [Validators.required, this.noPastDateValidator()]],
+      countPeople: ['', [Validators.required, Validators.min(1), Validators.max(10)]],
+      selectedHotel: ['', [Validators.required, this.hotelValidator.bind(this)]],
+      selectedFlight: ['', [Validators.required, this.airlineValidator.bind(this)]]
+    }, {
+      validators: [this.dateDifferenceValidator()]
     })
 
 
@@ -61,19 +61,19 @@ export class BookingComponent implements OnInit {
         this.flights = this.selectedSchedule.airlines
         // console.log(this.flights);
 
-        console.log('Selected Schedule:', this.selectedSchedule); 
+        console.log('Selected Schedule:', this.selectedSchedule);
         // Log the retrieved data
       } else {
         console.error('No schedule data found'); // Log the error message
       }
     });
   }
-  noPastDateValidator(){
-    return (control:any)=>{
-      const selectedDate =new Date(control.value);
-      const today =new Date();
-      today.setHours(0,0,0,0);
-      return selectedDate <today ?{pastDate:true} : null;
+  noPastDateValidator() {
+    return (control: any) => {
+      const selectedDate = new Date(control.value);
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+      return selectedDate < today ? { pastDate: true } : null;
     };
   }
 
@@ -83,7 +83,7 @@ export class BookingComponent implements OnInit {
       const returnDate = control.get('returnDate')?.value;
 
       if (!selectDate || !returnDate) {
-        return null; // Don't validate if dates are missing
+        return null;
       }
 
       const selectDateObj = new Date(selectDate);
@@ -92,78 +92,75 @@ export class BookingComponent implements OnInit {
       const dayDifference = timeDifference / (1000 * 3600 * 24);
 
       if (selectDate === returnDate) {
-        return { sameDateError: true }; // Return error if dates are equal
+        return { sameDateError: true };
       }
 
       if (dayDifference < 8) {
-        return { dateDifferenceError: true }; // Return error if difference is less than 8 days
+        return { dateDifferenceError: true };
       }
 
-      return null; // No error
+      return null;
     };
   }
 
-  hotelValidator(control:any){
-    const selectedHotel=control.value;
-    if(this.hotels.length>0 && !this.hotels.includes(selectedHotel)){
-      return { invalidHotel:true};
+  hotelValidator(control: any) {
+    const selectedHotel = control.value;
+    if (this.hotels.length > 0 && !this.hotels.includes(selectedHotel)) {
+      return { invalidHotel: true };
     }
     return null;
   }
-  airlineValidator(control:any)
-  {
-    const selectedFlight=control.value;
-    if(this.flights.length>0&& !this.flights.includes(selectedFlight)){
-      return {invalidFlight:true}
+  airlineValidator(control: any) {
+    const selectedFlight = control.value;
+    if (this.flights.length > 0 && !this.flights.includes(selectedFlight)) {
+      return { invalidFlight: true }
     }
     return null;
   }
 
 
-booking(){
-  var customerName  = this.bookingForm.value.CustomerName
-  var email =this.bookingForm.value.email
-  var mobno =this.bookingForm.value.mobno
-  var password =this.bookingForm.value.password
-  const tripInfo ={
-  from :this.bookingForm.value.from,
-  destination:this.bookingForm.value.destination,
-  selectDate :this.bookingForm.value.selectDate,
-  returnDate : this.bookingForm.value.returnDate,
-  countPeople : this.bookingForm.value.countPeople,
-  }
-  const preferences ={
-  selectedHotel : this.bookingForm.value.selectedHotel,
-  selectedFlight :this.bookingForm.value.selectedFlight,
-  }
-  const result = this.service.bookingconfirm(customerName,email,mobno,password,tripInfo,preferences)
+  booking() {
+    var customerName = this.bookingForm.value.CustomerName
+    var email = this.bookingForm.value.email
+    var mobno = this.bookingForm.value.mobno
+    var password = this.bookingForm.value.password
+    const tripInfo = {
+      from: this.bookingForm.value.from,
+      destination: this.bookingForm.value.destination,
+      selectDate: this.bookingForm.value.selectDate,
+      returnDate: this.bookingForm.value.returnDate,
+      countPeople: this.bookingForm.value.countPeople,
+    }
+    const preferences = {
+      selectedHotel: this.bookingForm.value.selectedHotel,
+      selectedFlight: this.bookingForm.value.selectedFlight,
+    }
+    const result = this.service.bookingconfirm(customerName, email, mobno, password, tripInfo, preferences)
 
- if(!this.bookingForm.valid){
+    if (this.bookingForm.valid) {
 
-  console.log(this.bookingForm.value);
-  if(result){
-     alert(`${customerName}, your Trip from ${tripInfo.from} to ${tripInfo.destination}  has been confirmed! Enjoy the Journey with ${preferences.selectedFlight}  `)
-     this.router.navigate(["/slotconfirm"],{
-      queryParams:{
-      UserName:customerName,
-      From:tripInfo.from,
-      Destination:tripInfo.destination,
-      Airline:preferences.selectedFlight
+      console.log(this.bookingForm.value)
+      if (result) {
+        alert(`${customerName}, your Trip from ${tripInfo.from} to ${tripInfo.destination}  has been confirmed! Enjoy the Journey with ${preferences.selectedFlight}  `)
+        this.router.navigate(["/slotconfirm"], {
+          queryParams: {
+            UserName: customerName,
+            From: tripInfo.from,
+            Destination: tripInfo.destination,
+            Airline: preferences.selectedFlight
 
+          }
+        })
+
+        console.log(this.service.db);
       }
-     })
+    }
 
-     console.log(this.service.db);  
-  } 
-  
- }
- else{
-  alert("Invalid form")
-
-}
-
-
-}
+    else {
+      alert("Invalid form")
+      console.log(result);
+    }
+  }
 
 }
 

@@ -55,19 +55,19 @@
             <div class="form-group mt-3">
                 <label for="returnDate">Return</label>
                 <input type="date" id="returnDate" class="form-control" name="returnDate" formControlName="returnDate" 
-                     required />
+                     required/>
                      <div *ngIf="bookingForm.get('returnDate')?.invalid && (bookingForm.get('returnDate')?.touched || bookingForm.get('returnDate')?.dirty)">
                         <small class="text-danger" *ngIf="bookingForm.get('returnDate')?.errors?.['required']">Return date is required.</small>
                         <small class="text-danger" *ngIf="bookingForm.get('returnDate')?.errors?.['pastDate']">Return date cannot be in the past.</small>
-                      </div>
-                
-            </div>
-            
-              
+                      </div>         
+                    </div>  
               <div *ngIf="bookingForm.hasError('dateDifferenceError') && bookingForm.get('returnDate')?.touched" style="color: red;">
                 <p class="error">Return Date must be at least 8 days after Select Date.</p>
               </div>
               
+              <div *ngIf="bookingForm.hasError('sameDateError')" style="color: red;"> 
+                Select date and return date cannot be the same.
+              </div>
               
 
             <!-- Number of People -->
@@ -75,9 +75,8 @@
                 <label for="countPeople">Number of People</label>
                 <input type="number" id="countPeople" class="form-control" name="countPeople" formControlName="countPeople"
                      required min="1" /> 
-                        
+            
             </div>
-           
 
             <div *ngIf="bookingForm.get('countPeople')?.invalid && (bookingForm.get('countPeople')?.touched || bookingForm.get('countPeople')?.dirty)">
                 <small class="text-danger" *ngIf="bookingForm.get('countPeople')?.errors?.['required']">Number of people is required.</small>
