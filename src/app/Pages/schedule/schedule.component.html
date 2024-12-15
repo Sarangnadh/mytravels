@@ -49,10 +49,10 @@
       </div>
     </div>
   </div>
-
+  <div class="d-flex justify-content-center align-items-center" *ngIf="selectedSchedule ">
+    <button (click)="booking()" class="btn btn-primary">Get Your Slot</button>
+  </div>
 </div>
 
 <!-- 'Schedule Your Trip' button -->
-<div class="d-flex justify-content-center align-items-center" *ngIf="selectedSchedule">
-  <button (click)="booking()" class="btn btn-primary">Get Your Slot</button>
-</div>
+

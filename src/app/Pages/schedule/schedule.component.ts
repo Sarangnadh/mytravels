@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ServicesService } from '../../Services/services.service';
 
 @Component({
   selector: 'app-schedule',
@@ -10,10 +11,13 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrl: './schedule.component.css'
 })
 export class ScheduleComponent implements OnInit {
+  isLoggedIn: boolean = false;
 
   selectedSchedule:any
   currentId: any;
-constructor(private router:Router,private route:ActivatedRoute){}
+constructor(private service:ServicesService,private router:Router,private route:ActivatedRoute){
+this.isLoggedIn =this.service.isLoggedIn();
+}
  scheduledetails: any = [
     {
       id: 1,

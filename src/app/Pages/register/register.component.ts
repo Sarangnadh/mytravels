@@ -41,7 +41,7 @@ export class RegisterComponent {
 
       if (result) {
         alert("Successfully registered")
-        this.router.navigateByUrl("navbar/login")
+        this.router.navigateByUrl("login")
       }
       else {
         alert("Already existing Customer...Please Login!!!")

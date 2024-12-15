@@ -17,7 +17,7 @@ export class SlotconfirmComponent implements OnInit {
     this.route.queryParams.subscribe(params => {
       this.customerName = params['customerName']; 
       this.tripDetails = params; 
-      console.log('Customer Name:', this.customerName);
+      // console.log('Customer Name:', this.customerName);
       console.log('Trip Details:', this.tripDetails);
     })
 

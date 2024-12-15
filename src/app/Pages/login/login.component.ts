@@ -3,12 +3,11 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ServicesService } from '../../Services/services.service';
-import { RegisterComponent } from "../register/register.component";
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule, RegisterComponent],
+  imports: [ReactiveFormsModule, CommonModule,],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
@@ -29,9 +28,13 @@ Login(){
 
   const result = this.ds.login(email,password)
 
-  if (result) {
+  if (result ==="admin") {
+    alert("Admin Login Successful")
+    this.router.navigateByUrl("admin");
+  }else if(result ==="user")
+  {
     alert("Login Successful")
-      this.router.navigateByUrl('explore')
+      this.router.navigateByUrl('profile')
     console.log(this.ds.db);
     
   }

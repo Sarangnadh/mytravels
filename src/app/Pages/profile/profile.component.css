@@ -1,0 +1,96 @@
+.profile-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+  }
+  
+  .profile-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .profile-pic img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 3px solid #4caf50;
+    object-fit: cover;
+  }
+  
+  .user-details h2 {
+    margin: 0;
+    font-size: 24px;
+    color: #333;
+  }
+  
+  .user-details .email {
+    color: #666;
+    font-size: 14px;
+  }
+  
+  .user-details .bio {
+    color: #888;
+    font-size: 16px;
+    margin-top: 8px;
+  }
+  
+  .profile-actions {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+  }
+  
+  .profile-actions .btn {
+    padding: 10px 20px;
+    font-size: 14px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .profile-actions .btn-primary {
+    background: #007bff;
+    color: #fff;
+  }
+  
+  .profile-actions .btn-secondary {
+    background: #6c757d;
+    color: #fff;
+  }
+  
+  .profile-actions .btn-danger {
+    background: #dc3545;
+    color: #fff;
+  }
+  
+  .profile-actions .btn:hover {
+    opacity: 0.9;
+  }
+  
+  .profile-info h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .profile-info ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .profile-info li {
+    margin: 8px 0;
+    font-size: 14px;
+    color: #555;
+  }
+  
+  .profile-info li strong {
+    color: #333;
+  }
+  
