@@ -1,56 +1,77 @@
 import { Component, OnInit } from '@angular/core';
-import { ServicesService } from '../../Services/services.service';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms'; // Import FormsModule
+import { ServicesService } from '../../Services/services.service';
 
 @Component({
   selector: 'app-profile',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule], // Include FormsModule here
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.css'
 })
 export class ProfileComponent implements OnInit {
-  user:any = {}
-  
-  constructor( private ds:ServicesService,private router:Router){}
+  user: any = {};
+  editUser: any = {};
+
+  constructor(private ds: ServicesService, private router: Router) {}
+
   ngOnInit(): void {
-    const email = this.ds.cutomerMail; // Retrieve logged-in user's email
+
+    const isTokenAvailable = localStorage.getItem('token');
+    if (!isTokenAvailable) {
+      alert('You need to log in to view your profile');
+      this.router.navigateByUrl('login'); // Redirect to login page if token is not available
+      return;
+    }
+
+    // if (!this.ds.isLoggedIn()) {
+    //   alert('You need to log in to view your profile');
+    //   this.router.navigateByUrl('login'); // Redirect to login page if
+      
+    // }
+    const email = this.ds.customerMail; // Retrieve logged-in user's email
     const userData = this.ds.db[email];
     if (userData) {
       this.user = {
         fullName: userData.fullname,
         email: userData.email,
         phone: userData.mobno,
-        joinedDate: new Date(userData.createdDate).toLocaleDateString(), 
-        address: '123 Street, City, Country',  // Placeholder, update if necessary
+        joinedDate: new Date(userData.createdDate).toLocaleDateString(),
+        address: userData.address || '' // Add address default value
       };
     } else {
       alert('User data not found!');
       this.router.navigateByUrl('login'); // Redirect to login if user data is unavailable
     }
-  
   }
+
   editProfile() {
-    alert('Edit Profile clicked!');
+    this.editUser = { ...this.user };
+  }
+
+  saveProfile() {
+    this.user = { ...this.editUser };
+    this.ds.db[this.ds.customerMail] = { ...this.ds.db[this.ds.customerMail], ...this.user };
+    this.ds.saveInfo();
+    alert('Profile updated successfully!');
   }
 
   viewBookings() {
-    const email = this.ds.cutomerMail;
+    const email = this.ds.customerMail;
     const bookings = this.ds.db[email]?.booking || [];
     if (bookings.length) {
-      console.log('User Bookings:', bookings);
       alert(`You have ${bookings.length} bookings.`);
+      this.router.navigateByUrl('bookings');
     } else {
       alert('No bookings available.');
     }
-    }
+  }
 
   logout() {
-    this.ds.cutomerMail = null;
-    this.ds.username = null;
-    this.ds.saveInfo(); // Clear saved session info
+    this.ds.logout();
+    // this.ds.saveInfo();
     this.router.navigateByUrl('login');
-    }
-
+  }
 }

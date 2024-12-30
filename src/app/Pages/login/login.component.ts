@@ -20,6 +20,7 @@ constructor(private fb:FormBuilder,private router:Router,private ds:ServicesServ
    
     
   })
+  
 }
 
 Login(){
@@ -30,10 +31,12 @@ Login(){
 
   if (result ==="admin") {
     alert("Admin Login Successful")
+    localStorage.setItem('token', 'admin-authenticated');
     this.router.navigateByUrl("admin");
   }else if(result ==="user")
   {
     alert("Login Successful")
+    localStorage.setItem('token', 'user-authenticated'); 
       this.router.navigateByUrl('profile')
     console.log(this.ds.db);
     

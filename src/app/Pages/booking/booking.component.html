@@ -1,130 +1,191 @@
-<div class="coverr">
-    <div class="container mt-5">
-        <h2 class="text-center">Schedule Your Trip</h2>
-
-        <form  [formGroup]="bookingForm"  >
-            <!-- Name -->
-            <div class="form-group">
-                <label for="CustomerName">Name</label>
-                <input type="text" id="CustomerName" class="form-control" name="CustomerName" formControlName="CustomerName"
-                   required />
-                
+<div class="coverr py-5">
+    <div class="container">
+      <h2 class="text-center mb-4 animate-title">Schedule Your Trip</h2>
+  
+      <form [formGroup]="bookingForm">
+        <div class="row g-3">
+          <!-- Name -->
+          <div class="col-md-6">
+            <label for="CustomerName" class="form-label">Name</label>
+            <input
+              type="text"
+              id="CustomerName"
+              class="form-control"
+              formControlName="CustomerName"
+              required
+            />
+            <div
+              *ngIf="bookingForm.get('CustomerName')?.errors && bookingForm.get('CustomerName')?.touched"
+              class="error"
+            >
+              <small *ngIf="bookingForm.get('CustomerName')?.errors?.['required']">
+                Name is required.
+              </small>
+              <small *ngIf="bookingForm.get('CustomerName')?.errors?.['pattern']">
+                Only alphabets and spaces are allowed.
+              </small>
             </div>
-            <div *ngIf="bookingForm.get('CustomerName')?.hasError('pattern') && bookingForm.get('CustomerName')?.touched" style="color: red;">Invalid Name</div>
-           <!-- note -->
-           <p class="note">Note: Enter the linked email or mobile number for this account.</p>
-           <!-- Email -->
-            <div class="form-group mt-3" >
-                <label for="email">Email</label>
-                <input type="text" id="email" class="form-control" name="email" formControlName="email"  required>
-                </div>
-                <div *ngIf="this.bookingForm.get('email')?.errors&&this.bookingForm.get('email')?.touched " style="color:red;">Please Enter the correct Email</div>
-            <!-- mobno -->
-            <div class="form-group mt-3" >
-                <label for="mobno">Phone Number</label>
-                <input type="text" id="mobno" class="form-control" name="mobno" formControlName="mobno"  required>
-                </div>
-                <div *ngIf="this.bookingForm.get('mobno')?.errors&&this.bookingForm.get('mobno')?.touched " style="color:red;">Please Enter the correct Number</div>
-
-            <!-- from -->
-            <div class="form-group mt-3" >
-                <label for="destination">From</label>
-                <input type="text" id="from" class="form-control" name="from" formControlName="from"  required>
-                </div>
-
-                
-
-            <!-- Destination -->
-            <div class="form-group mt-3" >
-                <label for="destination">Destination</label>
-                <input type="text" id="destination" class="form-control"  name="destination" formControlName="destination" required  readonly>
+          </div>
+  
+          <!-- Email -->
+          <div class="col-md-6">
+            <label for="email" class="form-label">Email</label>
+            <input
+              type="text"
+              id="email"
+              class="form-control"
+              formControlName="email"
+              required
+            />
+            <div
+              *ngIf="bookingForm.get('email')?.errors && bookingForm.get('email')?.touched"
+              class="error"
+            >
+              <small *ngIf="bookingForm.get('email')?.errors?.['required']">Email is required.</small>
+              <small *ngIf="bookingForm.get('email')?.errors?.['email']">Invalid email address.</small>
+            </div>
+          </div>
+  
+          <!-- Mobile Number -->
+          <div class="col-md-6">
+            <label for="mobno" class="form-label">Phone Number</label>
+            <input
+              type="text"
+              id="mobno"
+              class="form-control"
+              formControlName="mobno"
+              required
+            />
+            <div
+              *ngIf="bookingForm.get('mobno')?.errors && bookingForm.get('mobno')?.touched"
+              class="error"
+            >
+              <small *ngIf="bookingForm.get('mobno')?.errors?.['required']">Phone number is required.</small>
+              <small *ngIf="bookingForm.get('mobno')?.errors?.['pattern']">Invalid phone number.</small>
+            </div>
+          </div>
+            <!-- destination -->
+            <div class="col-md-6">
+                <label for="mobno" class="form-label">Destination</label>
+                <input
+                  type="text"
+                  id="mobno"
+                  class="form-control"
+                  formControlName="destination"
+                  required
+                  readonly
+                />
               
-            </div>
-
-            <!-- Date -->
-            <div class="form-group mt-3">
-                <label for=" selectDate">Trip Date</label>
-                <input type="date" id="selectDate" class="form-control" name="selectDate" formControlName="selectDate" 
-                     required />
-                     <div *ngIf="bookingForm.get('selectDate')?.invalid && (bookingForm.get('selectDate')?.touched || bookingForm.get('selectDate')?.dirty)">
-                        <small class="text-danger" *ngIf="bookingForm.get('selectDate')?.errors?.['required']">Date selection is required.</small>
-                        <small class="text-danger" *ngIf="bookingForm.get('selectDate')?.errors?.['pastDate']">Selected date cannot be in the past.</small>
-                      </div>
-            </div>
-            <!-- Return -->
-            <div class="form-group mt-3">
-                <label for="returnDate">Return</label>
-                <input type="date" id="returnDate" class="form-control" name="returnDate" formControlName="returnDate" 
-                     required/>
-                     <div *ngIf="bookingForm.get('returnDate')?.invalid && (bookingForm.get('returnDate')?.touched || bookingForm.get('returnDate')?.dirty)">
-                        <small class="text-danger" *ngIf="bookingForm.get('returnDate')?.errors?.['required']">Return date is required.</small>
-                        <small class="text-danger" *ngIf="bookingForm.get('returnDate')?.errors?.['pastDate']">Return date cannot be in the past.</small>
-                      </div>         
-                    </div>  
-              <div *ngIf="bookingForm.hasError('dateDifferenceError') && bookingForm.get('returnDate')?.touched" style="color: red;">
-                <p class="error">Return Date must be at least 8 days after Select Date.</p>
-              </div>
-              
-              <div *ngIf="bookingForm.hasError('sameDateError')" style="color: red;"> 
-                Select date and return date cannot be the same.
-              </div>
-              
-
-            <!-- Number of People -->
-            <div class="form-group mt-3">
-                <label for="countPeople">Number of People</label>
-                <input type="number" id="countPeople" class="form-control" name="countPeople" formControlName="countPeople"
-                     required min="1" /> 
-            
-            </div>
-
-            <div *ngIf="bookingForm.get('countPeople')?.invalid && (bookingForm.get('countPeople')?.touched || bookingForm.get('countPeople')?.dirty)">
-                <small class="text-danger" *ngIf="bookingForm.get('countPeople')?.errors?.['required']">Number of people is required.</small>
-                <small class="text-danger" *ngIf="bookingForm.get('countPeople')?.errors?.['min']">Minimum value is 1.</small>
-                <small class="text-danger" *ngIf="bookingForm.get('countPeople')?.errors?.['max']">Maximum value is 10.</small>
               </div>
 
-
-            <!-- hotel -->
-            <div class="form-group mt-3">
-                <label for="selectedHotel">Hotel</label>
-                <select id="selectedHotel" class="form-control" name="selectedHotel" 
-                formControlName="selectedHotel"
-                    required>
-                    <option value="" disabled>Select your Comfort</option>
-                    <option *ngFor="let hotel of hotels" [value]="hotel.name">{{hotel.name}}</option>
-                    </select>
-              
+          <!-- From -->
+          <div class="col-md-6">
+            <label for="from" class="form-label">From</label>
+            <input
+              type="text"
+              id="from"
+              class="form-control"
+              formControlName="from"
+              required
+            />
+            <div
+              *ngIf="bookingForm.get('from')?.errors && bookingForm.get('from')?.touched"
+              class="error"
+            >
+              <small *ngIf="bookingForm.get('from')?.errors?.['required']">This filed is required.</small>
             </div>
-            <div *ngIf="bookingForm.get('selectedHotel')?.hasError('required') && bookingForm.get('selectedHotel') && bookingForm.get('selectedHotel')?.touched" style="color: red;">Please Select a Hotel</div>
-
-            <!-- airlines -->
-            <div class="form-group mt-3">
-                <label for="selectedFlight">Airlines</label>
-                <select id="selectedFlight" class="form-control" name="selectedFlight" 
-                formControlName="selectedFlight"
-                 required>
-                    <option value="" disabled>Select your flight</option>
-                    <option *ngFor="let flight of flights" [value]="flight.airlineName">{{flight.airlineName}}</option>                  
-                </select>         
+          </div>
+        
+  
+          <!-- People Count -->
+          <div class="col-md-6">
+            <label for="countPeople" class="form-label">Number of People</label>
+            <input
+              type="number"
+              id="countPeople"
+              class="form-control"
+              formControlName="countPeople"
+              required
+              min="1"
+              max="10"
+            />
+            <div
+              *ngIf="bookingForm.get('countPeople')?.errors && bookingForm.get('countPeople')?.touched"
+              class="error"
+            >
+              <small *ngIf="bookingForm.get('countPeople')?.errors?.['required']">Number of People is required.</small>
             </div>
-            <div *ngIf="bookingForm.get('selectedFlight')?.hasError('required') && bookingForm.get('selectedFlight') && bookingForm.get('selectedFlight')?.touched " style="color: red;">Please Select a Airline</div>
-            <div class="form-group mt-3">
-              <label for="confirmpassword">Enter  your Password to Confirm the Trip</label>
-              <input type="text" name="password" formControlName="password" class="form-control bg-body-secondary" placeholder=" Password"  id="userpswd" required>         
+          </div>
+          <!-- Date -->
+          <div class="col-md-6">
+            <label for="selectDate" class="form-label">Trip Date</label>
+            <input
+              type="date"
+              id="selectDate"
+              class="form-control"
+              formControlName="selectDate"
+              required
+            />
+            <div *ngIf="bookingForm.get('selectDate')?.touched && bookingForm.get('selectDate')?.invalid" class="error">
+              <small *ngIf="bookingForm.get('selectDate')?.errors?.['required']">Departure date is required.</small>
+              <small *ngIf="bookingForm.get('selectDate')?.errors?.['pastDate']">Departure date cannot be in the past.</small>
             </div>
-            <div *ngIf="this.bookingForm.get('password')?.errors&&this.bookingForm.get('password')?.touched " style="color:red;">Please Enter the Password</div>
-            <!-- Submit Button -->
-         
-        </form>
-        <button type="submit" class="btn btn-primary mt-4" (click)="booking()" >
+          </div>
+<!-- returnDate -->
+          <div class="col-md-6">
+            <label for="selectDate" class="form-label">Return Date</label>
+            <input
+              type="date"
+              id="returnDate"
+              class="form-control"
+              formControlName="returnDate"
+              required
+            />
+            <div *ngIf="bookingForm.get('returnDate')?.touched && bookingForm.get('returnDate')?.invalid" class="error">
+              <small *ngIf="bookingForm.get('returnDate')?.errors?.['required']">Return date is required.</small>
+              <small *ngIf="bookingForm.get('returnDate')?.errors?.['pastDate']">Departure date cannot be in the past.</small>
+              <small *ngIf="bookingForm.get('returnDate')?.errors?.['invalidReturnDate']">Return date must be at least 8 days after departure.</small>
+            </div>
+          </div>
+  
+          <!-- Hotels  -->
+          <div class="col-md-6">
+            <label for="selectedHotel" class="form-label">Hotel</label>
+            <select id="selectedHotel" class="form-select" formControlName="selectedHotel" required>
+              <option value="" disabled>Select your hotel</option>
+              <option *ngFor="let hotel of hotelDetails" [value]="hotel.name">
+                {{ hotel.name }}
+              </option>
+            </select>
+            <div *ngIf="bookingForm.get('selectedHotel')?.touched && bookingForm.get('selectedHotel')?.invalid" class="error">
+              <small *ngIf="bookingForm.get('selectedHotel')?.errors?.['required']">Please select a hotel.</small>
+            </div>
+          </div>
+  <!-- flights -->
+          <div class="col-md-6">
+            <label for="selectedFlight" class="form-label">Airlines</label>
+            <select id="selectedFlight" class="form-select" formControlName="selectedFlight" required>
+              <option value="" disabled>Select your airline</option>
+              <option *ngFor="let flight of airlineDetails" [value]="flight.airlineName">
+                {{ flight.airlineName }}
+              </option>
+            </select>
+            <div *ngIf="bookingForm.get('selectedFlight')?.touched && bookingForm.get('selectedFlight')?.invalid" class="error">
+              <small *ngIf="bookingForm.get('selectedFlight')?.errors?.['required']">Please select a flight.</small>
+            </div>
+          </div>
+        </div>
+        <div class="form-group mt-3">
+          <label for="confirmpassword" style="color: green;">Enter  your Password to Confirm the Trip</label>
+          <input type="text" name="password" formControlName="password" class="form-control bg-body-secondary" placeholder=" Password"  id="userpswd" required>         
+        </div>
+        <div *ngIf="this.bookingForm.get('password')?.errors&&this.bookingForm.get('password')?.touched " style="color:red;">Please Enter the Password</div>
+        <!-- Submit Button -->
+        <div class="text-center mt-4">
+          <button type="button" class="btn btn-primary px-4 py-2 animate-button" (click)="booking()">
             Submit
-        </button>
+          </button>
+        </div>
+      </form>
     </div>
-
-</div>
-
-
-
-  
-  
+  </div>

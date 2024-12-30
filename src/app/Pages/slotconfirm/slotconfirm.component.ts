@@ -15,9 +15,9 @@ export class SlotconfirmComponent implements OnInit {
   constructor(private route:ActivatedRoute){}
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
-      this.customerName = params['customerName']; 
+      this.customerName = params['UserName']; 
       this.tripDetails = params; 
-      // console.log('Customer Name:', this.customerName);
+      console.log('Customer Name:', this.customerName);
       console.log('Trip Details:', this.tripDetails);
     })
 

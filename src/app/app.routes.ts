@@ -15,6 +15,7 @@ import { ProfileComponent } from './Pages/profile/profile.component';
 import { UserManagementComponent } from './Pages/user-management/user-management.component';
 import { BookingManagementComponent } from './Pages/booking-management/booking-management.component';
 import { AdminComponent } from './Pages/admin/admin.component';
+import { authGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
     
@@ -25,13 +26,13 @@ export const routes: Routes = [
     {path:"services",component:ServicesComponent},
     {path:"contact",component:ContactComponent},
     {path:"main",component:MaintainComponent},
-    {path:"schedule/:id",component:ScheduleComponent},
-    {path:"booking",component:BookingComponent},
-    {path:"slotconfirm",component:SlotconfirmComponent},
+    {path:"schedule/:id",component:ScheduleComponent,canActivate:[authGuard]},
+    {path:"booking",component:BookingComponent,canActivate:[authGuard]},
+    {path:"slotconfirm",component:SlotconfirmComponent,canActivate:[authGuard]},
     {path:"explore",component:ExploreComponent},
-    {path:"profile",component:ProfileComponent},
+    {path:"profile",component:ProfileComponent,canActivate:[authGuard]},
     {path:"users", component:UserManagementComponent},
-    {path:"bookings",component:BookingManagementComponent},
+    {path:"bookings",component:BookingManagementComponent,canActivate:[authGuard]},
     {path:"admin",component:AdminComponent}  ,
 ];
 @NgModule({

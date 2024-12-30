@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class ServicesService {
   username: any
-  cutomerMail: any
+  customerMail: any
   private loggedIn = false; 
   db: any = {
     
@@ -14,7 +14,7 @@ export class ServicesService {
 
   }
   adminDb: any = {
-    "admin@gmail.com": { fullname: "Admin", email:"admin@example.com", mobno: 1234567890, password: 'admin5789', role: "admin" }
+    "admin@gmail.com": { fullname: "Admin", email:"admin@gmail.com", mobno: 1234567890, password: 'admin5789', role: "admin" }
   };
   constructor() {
     this.getInfo()
@@ -52,7 +52,7 @@ export class ServicesService {
       this.username = JSON.parse(localStorage.getItem("username") || '')
     }
     if (localStorage.getItem("customerMail")) {
-      this.cutomerMail = JSON.parse(localStorage.getItem("customerMail") || '')
+      this.customerMail = JSON.parse(localStorage.getItem("customerMail") || '')
     }
     
   }
@@ -74,15 +74,17 @@ removeUser(email: string) {
   }
   return false;
 }
+
+
 logout(): void {
   // Clear localStorage for user-specific data
+  localStorage.removeItem('token');
   localStorage.removeItem('username');
   localStorage.removeItem('customerMail');
 
   // Reset service variables
   this.username = null;
-  this.cutomerMail = null;
-  this.loggedIn = false;
+  this.customerMail = null;
 
   // Optionally, clear any other user-specific data if needed
   console.log('User logged out successfully.');
@@ -93,7 +95,7 @@ logout(): void {
     if (email in this.adminDb) {
       if (password == this.adminDb[email]["password"]) {
         this.username = this.adminDb[email]["fullname"];
-        this.cutomerMail = email;
+        this.customerMail = email;
         this.saveInfo();
         return "admin"; // Admin Login
       } else {
@@ -103,7 +105,7 @@ logout(): void {
     } else if (email in this.db) {
       if (password == this.db[email]["password"]) {
         this.username = this.db[email]["fullname"];
-        this.cutomerMail = email;
+        this.customerMail = email;
         this.saveInfo();
         return "user"; // User Login
       } else {
@@ -115,11 +117,13 @@ logout(): void {
       return false;
     }
   }
+  isLoggedIn(): boolean {
+    return !!localStorage.getItem('token'); // Simulated login check
+  }
 
-
-isLoggedIn():boolean{
-  return this.loggedIn
-}
+// isLoggedIn():boolean{
+//   return this.loggedIn
+// }
   // login(email: any, password: any): string | boolean {
 
   //   let db = this.db

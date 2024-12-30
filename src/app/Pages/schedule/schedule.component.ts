@@ -16,7 +16,7 @@ export class ScheduleComponent implements OnInit {
   selectedSchedule:any
   currentId: any;
 constructor(private service:ServicesService,private router:Router,private route:ActivatedRoute){
-this.isLoggedIn =this.service.isLoggedIn();
+// this.isLoggedIn =this.service.isLoggedIn();
 }
  scheduledetails: any = [
     {
