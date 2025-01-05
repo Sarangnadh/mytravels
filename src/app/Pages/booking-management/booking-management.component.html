@@ -1,1 +1,20 @@
-<p>booking-management works page!</p>
+<div class="bookings">
+  <h1>Your Bookings</h1>
+  <div class="booking-list" *ngIf="bookings.length; else noBookings">
+    <div class="booking-card" *ngFor="let booking of bookings;let i= index">
+      <div class="card-content">
+        <p><strong>From:</strong> {{ booking.From }}</p>
+        <p><strong>To:</strong> {{ booking.Destination }}</p>
+        <p><strong>Departure:</strong> {{ booking.DepartureDate }}</p>
+        <p><strong>Return:</strong> {{ booking.ReturnDate }}</p>
+        <p><strong>People:</strong> {{ booking.CountPeople }}</p>
+        
+        <button class="cancel-button" (click)="cancelBooking(i)">Cancel Booking</button>
+      </div>
+    </div>
+  </div>
+  <ng-template #noBookings>
+    <p class="no-bookings">No bookings found.</p>
+  </ng-template>
+  <button class="back-button" (click)="goBack()">Back to Profile</button>
+</div>

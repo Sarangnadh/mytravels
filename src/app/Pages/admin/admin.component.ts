@@ -24,7 +24,7 @@ export class AdminComponent implements OnInit {
     if (confirmation) {
       if (this.ds.removeUser(email)) {
         alert("User removed successfully!");
-        this.users = this.ds.getAllUsers(); // Refresh user list
+        this.users = this.ds.getAllUsers(); // refresh user list
       } else {
         alert("Failed to remove user.");
       }

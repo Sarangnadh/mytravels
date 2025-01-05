@@ -1,0 +1,114 @@
+/* General styles */
+.bookings {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 20px;
+  font-family: 'Arial', sans-serif;
+  text-align: center;
+  background: #f8f9fa;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Heading styles */
+.bookings h1 {
+  margin-bottom: 30px;
+  color: #343a40;
+  font-size: 2rem;
+  text-transform: uppercase;
+}
+
+/* Booking list styles */
+.booking-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+/* Individual booking card */
+.booking-card {
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 15px;
+  width: 300px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.booking-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Booking card content */
+.card-content p {
+  margin: 10px 0;
+  font-size: 1rem;
+  color: #495057;
+}
+
+.card-content strong {
+  color: #007bff;
+}
+
+/* No bookings message */
+.no-bookings {
+  font-size: 1.2rem;
+  color: #6c757d;
+}
+
+/* Back button */
+.back-button {
+  margin-top: 30px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  color: #ffffff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.back-button:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .booking-card {
+    width: 90%;
+  }
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* Cancel button */
+.cancel-button {
+  margin-top: 10px;
+  padding: 8px 15px;
+  font-size: 0.9rem;
+  color: #fff;
+  background-color: #dc3545;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.cancel-button:hover {
+  background-color: #c82333;
+  transform: scale(1.05);
+}

@@ -35,12 +35,17 @@ Login(){
     this.router.navigateByUrl("admin");
   }else if(result ==="user")
   {
+    const userData = this.ds.db[email];
+    if(userData){
     alert("Login Successful")
     localStorage.setItem('token', 'user-authenticated'); 
+    localStorage.setItem('userData',JSON.stringify(userData));
+    this.ds.setCurrentUser(userData)
       this.router.navigateByUrl('profile')
-    console.log(this.ds.db);
-    
+    console.log('user',this.ds.db);
+    }
   }
+  
 }
 
 }

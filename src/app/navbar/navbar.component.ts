@@ -12,23 +12,34 @@ import { ServicesService } from '../Services/services.service';
 })
 export class NavbarComponent implements OnInit{
   isLoggedIn: boolean = false;
+  isAdmin :boolean =false;
   username: string | null = null;
+
   constructor(private routes:Router,private service:ServicesService){
-    this.username = this.service.username;
+    // this.username = this.service.username;
 
   }
   ngOnInit(): void {
-    this.isLoggedIn =this.service.isLoggedIn();
+  this.updateNavbar();
+  }
+
+  updateNavbar(): void {
+    this.isLoggedIn = this.service.isLoggedIn();
+    this.isAdmin = this.service.isAdmin();
+    if (this.isLoggedIn) {
+      const currentUser = this.service.getCurrentUser();
+      this.username = currentUser?.fullname || null;
+    }
   }
 
   logout():void{
 this.service.logout();
-this.isLoggedIn =false;
+this.updateNavbar();
 alert('You have been logged out')
-this.routes.navigateByUrl('login')
+this.routes.navigateByUrl('')
 }
   
-register(){
-  this.routes.navigateByUrl("register")
+getstarted(){
+  this.routes.navigateByUrl("login")
 }
 }

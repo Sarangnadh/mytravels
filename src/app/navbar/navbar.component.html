@@ -15,11 +15,14 @@
     <!-- Navigation Links -->
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="!isLoggedIn">
           <a class="nav-link active" aria-current="page" href="">Home</a>
         </li>
         <li class="nav-item" *ngIf="isLoggedIn">
           <a class="nav-link" href="/profile">Profile</a>
+        </li>
+        <li class="nav-item" *ngIf="isAdmin">
+          <a class="nav-link" href="/admin">Admin</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/explore">Explore</a>
@@ -39,7 +42,7 @@
       <!-- Right-Side Buttons -->
       <div class="d-flex align-items-center">
         <!-- Login Button -->
-        <button *ngIf="!isLoggedIn" type="button" class="btn btn-primary me-3" (click)="register()" >Get Started</button>
+        <button *ngIf="!isLoggedIn" type="button" class="btn btn-primary me-3" (click)="getstarted()" >Get Started</button>
         
         <button *ngIf="isLoggedIn" type="button" class="btn btn-primary me-3" (click)="logout()" >Logout</button>
 
