@@ -31,9 +31,9 @@ export const routes: Routes = [
     {path:"slotconfirm",component:SlotconfirmComponent,canActivate:[authGuard]},
     {path:"explore",component:ExploreComponent},
     {path:"profile",component:ProfileComponent,canActivate:[authGuard]},
-    {path:"users", component:UserManagementComponent},
+    {path:"users", component:UserManagementComponent,canActivate:[authGuard]},
     {path:"bookings",component:BookingManagementComponent,canActivate:[authGuard]},
-    {path:"admin",component:AdminComponent}  ,
+    {path:"admin",component:AdminComponent,canActivate:[authGuard]}  ,
 ];
 @NgModule({
     imports: [RouterModule.forRoot(routes)],

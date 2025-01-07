@@ -32,6 +32,7 @@ Login(){
   if (result ==="admin") {
     alert("Admin Login Successful")
     localStorage.setItem('token', 'admin-authenticated');
+    this.ds.setCurrentUser(this.ds.adminDb[email]);
     this.router.navigateByUrl("admin");
   }else if(result ==="user")
   {
@@ -42,7 +43,7 @@ Login(){
     localStorage.setItem('userData',JSON.stringify(userData));
     this.ds.setCurrentUser(userData)
       this.router.navigateByUrl('profile')
-    console.log('user',this.ds.db);
+    // console.log('user',this.ds.db);
     }
   }
   

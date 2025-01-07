@@ -16,33 +16,31 @@ export class BookingManagementComponent implements OnInit {
   constructor(private router: Router, private ds:ServicesService ) {}
 
   ngOnInit(): void {
-    // retrieve bookings from router state or localStorage
-    const stateBookings = history.state.bookings;
-    const storedBookings = localStorage.getItem('userBookings');
-
-    if (stateBookings) {
-      this.bookings = stateBookings; // data passed via router state
-      localStorage.setItem('userBookings', JSON.stringify(this.bookings));
-    } else if (storedBookings) {
-      this.bookings = JSON.parse(storedBookings); // data persisted in localStorage
-    } else {
-      alert('No bookings found! Redirecting to profile...');
-      this.router.navigateByUrl('/profile'); // redirect back if no data
+    const email = this.ds.customerMail;
+    if(email)
+    {
+      this.bookings = this.ds.bookingHistory(email) || [];
+      if(!this.bookings.length){
+        alert('No bookings found ! Redirecting  to profile...');
+        this.router.navigateByUrl('/profile');
+      }
+    }
+    else{
+      alert('User not logged in! Redirecting to login...');
+      this.router.navigateByUrl('/login')
     }
   }
 
   cancelBooking(index: number): void {
     const confirmation = confirm('Are you sure you want to cancel this booking?');
     if (confirmation) {
-      // remove booking from local list
-      const removedBooking = this.bookings.splice(index, 1);
-
-      // update the bookings in the service and localStorage
       const email = this.ds.customerMail;
+      const bookingToRemove =this.bookings[index];
       if (email) {
-        const success = this.ds.cancelBooking(email, removedBooking[0]);
+        const success = this.ds.cancelBooking(email,bookingToRemove);
         if (success) {
-          localStorage.setItem('userBookings', JSON.stringify(this.bookings));
+          this.bookings.splice(index,1)
+          // localStorage.setItem('userBookings', JSON.stringify(this.bookings));
           alert('Booking canceled successfully!');
         } else {
           alert('Failed to cancel booking. Please try again.');

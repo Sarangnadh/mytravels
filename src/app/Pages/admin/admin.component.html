@@ -1,28 +1,50 @@
-<div class="admin-dashboard">
+<div class="dashboard">
     <h1>Admin Dashboard</h1>
-    <h2>Manage Users</h2>
-    <table>
-      <thead>
-        <tr>
-          <th>Full Name</th>
-          <th>Email</th>
-          <th>Phone</th>
-          <th>Bookings</th>
-          <th>Actions</th>
-
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let user of users">
-          <td>{{ user.data.fullname }}</td>
-          <td>{{ user.email }}</td>
-          <td>{{ user.data.mobno }}</td>
-          <td>{{user.booking}}</td>
-          <td>
-            <button class="btn btn-danger" (click)="removeUser(user.email)">Remove</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="info-cards">
+      <div class="card">
+        <h3>Admin Email</h3>
+        <p>{{ adminEmail }}</p>
+      </div>
+      <div class="card">
+        <h3>User Count</h3>
+        <p>{{ userCount }}</p>
+      </div>
+      <div class="card">
+        <h3>Total Bookings</h3>
+        <p>{{ totalBookingsCount }}</p>
+      </div>
+      <div class="card">
+        <h3>Canceled Bookings</h3>
+        <p>{{ canceledBookingsCount }}</p>
+      </div>
+    </div>
+  
+    <div class="data-management">
+      <div class="data-section">
+        <h3>Explore Items</h3>
+        <ul>
+          <li *ngFor="let item of explore">{{ item }}</li>
+        </ul>
+        <input
+          type="text"
+          [(ngModel)]="newExploreItem"
+          placeholder="Add new explore item"
+        />
+        <button (click)="addExploreItem()">Add</button>
+      </div>
+  
+      <div class="data-section">
+        <h3>Schedule Items</h3>
+        <ul>
+          <li *ngFor="let item of schedule">{{ item }}</li>
+        </ul>
+        <input
+          type="text"
+          [(ngModel)]="newScheduleItem"
+          placeholder="Add new schedule item"
+        />
+        <button (click)="addScheduleItem()">Add</button>
+      </div>
+    </div>
   </div>
   

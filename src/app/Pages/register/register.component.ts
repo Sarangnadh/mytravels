@@ -33,7 +33,7 @@ export class RegisterComponent {
     var email = this.register.value.email
     var mobno = this.register.value.mobno
     var password = this.register.value.password
-    console.log(this.register.valid);
+    // console.log(this.register.valid);
 
     if (this.register.valid) {
 

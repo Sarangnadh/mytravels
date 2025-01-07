@@ -7,18 +7,18 @@ import { Router } from '@angular/router';
 export class ServicesService {
   username: any
   customerMail: any
-  private loggedIn = false; 
-  currentUser:any;
+  private loggedIn = false;
+  currentUser: any;
   db: any = {
-    
-    "starkindu@gmail.com": { fullname: "Sarang", email:"starkindu@gmail.com", mobno: 8301056189, password:"12345678", role:"user", booking: [] ,bookingList:[]},
+
+    "starkindu@gmail.com": { fullname: "Sarang", email: "starkindu@gmail.com", mobno: 8301056189, password: "12345678", role: "user", booking: [], bookingList: [] },
 
 
   }
   adminDb: any = {
-    "admin@gmail.com": { fullname: "Admin", email:"admin@gmail.com", mobno: 1234567890, password: 'admin5789', role: "admin",userBookingList:[] }
+    "admin@gmail.com": { fullname: "Admin", email: "admin@gmail.com", mobno: 1234567890, password: 'admin5789', role: "admin", userBookingList: [] }
   };
-  constructor(private route :Router) {
+  constructor(private route: Router) {
     this.getInfo();
   }
   // save details
@@ -34,10 +34,10 @@ export class ServicesService {
       localStorage.setItem("username", JSON.stringify(this.db))
     }
     if (this.db) {
-      localStorage.setItem("cutomerMail", JSON.stringify(this.customerMail))
+      localStorage.setItem("customerMail", JSON.stringify(this.customerMail))
     }
-    
-    
+
+
   }
 
 
@@ -56,9 +56,20 @@ export class ServicesService {
     if (localStorage.getItem("customerMail")) {
       this.customerMail = JSON.parse(localStorage.getItem("customerMail") || '')
     }
-    
+
   }
-  
+  // Get all users' booking history with status
+  getAllUsersBookingHistory() {
+    return Object.entries(this.db).map(([email, user]: [string, any]) => ({
+      email,
+      fullname: user.fullname,
+      bookings: user.bookingList.map((booking: any) => ({
+        ...booking,
+        status: booking.status || "Pending", // Default status if not set
+      })),
+    }));
+  }
+
   cancelBooking(email: string, bookingToRemove: any): boolean {
     const user = this.db[email];
     if (user) {
@@ -70,7 +81,7 @@ export class ServicesService {
           booking.ReturnDate === bookingToRemove.ReturnDate &&
           booking.CountPeople === bookingToRemove.CountPeople
       );
-  
+
       if (bookingIndex > -1) {
         user.bookingList.splice(bookingIndex, 1); // remove from bookingList
         user.booking.splice(bookingIndex, 1); // remove from booking (if applicable)
@@ -80,55 +91,65 @@ export class ServicesService {
     }
     return false;
   }
-  
 
-// Get all users (Admin-specific)
-getAllUsers() {
-  const users = Object.entries(this.db)
-      .map(([email, data]) => ({ email,data }));
+
+  // Get all users (Admin-specific)
+  getAllUsers() {
+    const users = Object.entries(this.db)
+      .map(([email, data]) => ({ email, data }));
     return users;
-    
-}
 
-// Remove user (Admin-specific)
-removeUser(email: string) {
-  if (email in this.db) {
-    delete this.db[email];
-    this.saveInfo();
-    return true;
   }
-  return false;
-}
 
+  // Remove user (Admin-specific)
+  removeUser(email: string) {
+    if (email in this.db) {
+      delete this.db[email];
+      this.saveInfo();
+      return true;
+    }
+    return false;
+  }
+  logout(): void {
+    // Clear all user-related data from localStorage
+    localStorage.removeItem('token');
+    localStorage.removeItem('username');
+    localStorage.removeItem('customerMail');
+    localStorage.removeItem('currentUser');
+    localStorage.removeItem('userBookings');
 
-logout(): void {
-  // Clear localStorage for user-specific data
-  localStorage.removeItem('token');
-  localStorage.removeItem('username');
-  localStorage.removeItem('customerMail');
+    // Reset the service variables
+    this.currentUser = null;
+    this.username = null;
+    this.customerMail = null;
 
-  // Reset service variables
-  this.username = null;
-  this.customerMail = null;
+    // Redirect to login or home page
+    this.route.navigateByUrl('/login').then(() => {
+      // Clear browser history to prevent back navigation
+      window.location.reload();
+    });
 
-  // Optionally, clear any other user-specific data if needed
-  console.log('User logged out successfully.');
-}
-getCurrentUser() {
-  return this.currentUser;
-}
-setCurrentUser(user: any) {
-  this.currentUser = user;
-  this.saveInfo();  // Save updated user to localStorage
-}
+    console.log('User logged out successfully.');
+  }
+
+  getCurrentUser() {
+    if (!this.currentUser) {
+      this.currentUser = JSON.parse(localStorage.getItem('currentUser') || 'null');
+    }
+    return this.currentUser;
+  }
+  setCurrentUser(user: any) {
+    this.currentUser = user;
+    this.saveInfo();  // Save updated user to localStorage
+  }
   //login
   login(email: any, password: any): string | boolean {
     if (email in this.adminDb) {
       if (password == this.adminDb[email]["password"]) {
-        this.currentUser=this.adminDb[email];
+        this.currentUser = this.adminDb[email];
         this.username = this.adminDb[email]["fullname"];
         this.customerMail = email;
-        localStorage.setItem("token","admin-auth-token");
+        localStorage.setItem("token", "admin-auth-token");
         localStorage.setItem("currentUser", JSON.stringify(this.currentUser));
         this.saveInfo();
         return "admin"; // Admin Login
@@ -138,12 +159,12 @@ setCurrentUser(user: any) {
       }
     } else if (email in this.db) {
       if (password == this.db[email]["password"]) {
-        this.currentUser =this.db[email];
+        this.currentUser = this.db[email];
         this.username = this.db[email]["fullname"];
         this.customerMail = email;
         localStorage.setItem("token", "user-auth-token");
         localStorage.setItem("currentUser", JSON.stringify(this.currentUser));
-        localStorage.setItem("userBookings",JSON.stringify(this.db[email].bookingList));
+        localStorage.setItem("userBookings", JSON.stringify(this.db[email].bookingList));
         this.saveInfo();
         return "user"; // User Login
       } else {
@@ -160,8 +181,7 @@ setCurrentUser(user: any) {
     return !!localStorage.getItem('token'); // Simulated login check
   }
   isAdmin(): boolean {
-    const user = this.getCurrentUser();
-    return user?.role === 'admin';
+    return this.currentUser?.role === 'admin'
   }
 
 
@@ -180,10 +200,10 @@ setCurrentUser(user: any) {
         mobno,
         password,
         booking: [],
-        bookingList:[],
+        bookingList: [],
         contactUs: [],
-        createdDate: currentDate, 
-        role:"user"
+        createdDate: currentDate,
+        role: "user"
 
       }
       console.log(db);
@@ -210,6 +230,7 @@ setCurrentUser(user: any) {
           CountPeople: tripInfo.countPeople,
           SelectedHotel: preferences.selectedHotel,
           SelectedFlight: preferences.selectedFlight,
+          status: "Pending",
         })
         db[email].bookingList.push({
           FullName: customerName,
@@ -221,6 +242,7 @@ setCurrentUser(user: any) {
           CountPeople: tripInfo.countPeople,
           SelectedHotel: preferences.selectedHotel,
           SelectedFlight: preferences.selectedFlight,
+          status: "Pending",
         })
         this.saveInfo()
         return db[email]["booking"]
@@ -236,7 +258,8 @@ setCurrentUser(user: any) {
     }
   }
 
-  bookingHistory(email:any){
+  bookingHistory(email: any) {
     return this.db[email].bookingList
+
   }
 }

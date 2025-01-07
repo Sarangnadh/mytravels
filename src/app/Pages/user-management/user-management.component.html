@@ -1,1 +1,78 @@
-<p>user-management works!</p>
+<div class="admin-dashboard">
+    <h1 class="dashboard-title">Admin Dashboard</h1>
+    <h2 class="section-title">Manage Users</h2>
+    <table class="user-table">
+      <thead>
+        <tr>
+          <th>Full Name</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Bookings</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users" class="user-row">
+          <td>{{ user.data.fullname }}</td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.data.mobno }}</td>
+          <td> <a href="#" class="link-bookings" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">View Bookings</a></td>
+          <td>
+            <button class="btn btn-danger btn-remove" (click)="removeUser(user.email)">Remove</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="user-bookings">
+    <div *ngFor="let user of usersBookingHistory" class="booking-card animate">
+      <h3 class="user-title">{{ user.fullname }} ({{ user.email }})</h3>
+      <div *ngFor="let booking of user.bookings; let i = index" class="booking-detail">
+        <p>
+          <strong>From:</strong> {{ booking.From }} |
+          <strong>To:</strong> {{ booking.Destination }} |
+          <strong>Departure:</strong> {{ booking.DepartureDate }} |
+          <strong>Return:</strong> {{ booking.ReturnDate }} |
+          <strong>Status:</strong> 
+          <span class="booking-status">{{ booking.status }}</span>
+        </p>
+        <button class="btn btn-success btn-status" (click)="updateBookingStatus(user.email, i, 'Confirmed')">Confirm</button>
+        <button class="btn btn-warning btn-status" (click)="updateBookingStatus(user.email, i, 'Cancelled')">Cancel</button>
+      </div>
+      <hr />
+    </div>
+  </div>
+  
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel"></h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="user-bookings">
+                <div *ngFor="let user of usersBookingHistory" class="booking-card animate">
+                  <h3 class="user-title">{{ user.fullname }} ({{ user.email }})</h3>
+                  <div *ngFor="let booking of user.bookings; let i = index" class="booking-detail">
+                    <p>
+                      <strong>From:</strong> {{ booking.From }} |
+                      <strong>To:</strong> {{ booking.Destination }} |
+                      <strong>Departure:</strong> {{ booking.DepartureDate }} |
+                      <strong>Return:</strong> {{ booking.ReturnDate }} |
+                      <strong>Status:</strong> 
+                      <span class="booking-status">{{ booking.status }}</span>
+                    </p>
+                    <button class="btn btn-success btn-status" (click)="updateBookingStatus(user.email, i, 'Confirmed')">Confirm</button>
+                    <button class="btn btn-warning btn-status" (click)="updateBookingStatus(user.email, i, 'Cancelled')">Cancel</button>
+                  </div>
+                  <hr />
+                </div>
+              </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>

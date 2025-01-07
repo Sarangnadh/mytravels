@@ -24,21 +24,23 @@ export class NavbarComponent implements OnInit{
   }
 
   updateNavbar(): void {
-    this.isLoggedIn = this.service.isLoggedIn();
-    this.isAdmin = this.service.isAdmin();
-    if (this.isLoggedIn) {
-      const currentUser = this.service.getCurrentUser();
-      this.username = currentUser?.fullname || null;
-    }
+    const currentUser = this.service.getCurrentUser();
+    this.isLoggedIn = !!currentUser;
+    this.isAdmin = currentUser?.role === 'admin';
+    this.username = currentUser?.fullname || null;
   }
 
-  logout():void{
-this.service.logout();
-this.updateNavbar();
-alert('You have been logged out')
-this.routes.navigateByUrl('')
-}
+
   
+logout(): void {
+  this.service.logout();
+  this.isLoggedIn = false;
+  this.isAdmin = false;
+  this.username = null;
+  alert('You have been logged out');
+  this.routes.navigateByUrl('');
+}
+
 getstarted(){
   this.routes.navigateByUrl("login")
 }

@@ -43,7 +43,7 @@ export class ProfileComponent implements OnInit {
   logout(): void {
     this.ds.logout();
     localStorage.removeItem('userBookings'); // clear bookings on logout
-    this.router.navigateByUrl('/login');
+    this.router.navigateByUrl('');
   }
 
   viewBookings(): void {

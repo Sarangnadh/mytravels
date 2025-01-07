@@ -15,25 +15,28 @@
     <!-- Navigation Links -->
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item" *ngIf="!isLoggedIn">
+        <li class="nav-item" *ngIf="!isLoggedIn && !isAdmin">
           <a class="nav-link active" aria-current="page" href="">Home</a>
         </li>
-        <li class="nav-item" *ngIf="isLoggedIn">
+        <li class="nav-item" *ngIf="isLoggedIn && !isAdmin">
           <a class="nav-link" href="/profile">Profile</a>
         </li>
         <li class="nav-item" *ngIf="isAdmin">
           <a class="nav-link" href="/admin">Admin</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="isAdmin">
+          <a class="nav-link" href="/users">User Management</a>
+        </li>
+        <li class="nav-item" *ngIf="!isAdmin">
           <a class="nav-link" href="/explore">Explore</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="!isAdmin">
           <a class="nav-link" href="/services">Services</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="!isAdmin">
           <a class="nav-link" href="/about">About Us</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="!isAdmin">
           <a class="nav-link" href="/contact">Contact</a>
         </li>
         
