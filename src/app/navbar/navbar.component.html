@@ -5,7 +5,7 @@
       <img src="https://res.cloudinary.com/daf1fkwp5/image/upload/v1727621399/ul0esrnclzuoftgpvfcp.png" 
            alt="My Travel" class="navbar-logo">
     </a>
-    <a class="navbar-brand" href="">Aura Travel</a>
+    <a class="navbar-brand" href="" *ngIf="!isAdmin">Aura Travel</a>
     
     <!-- Toggler Button for Mobile View -->
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">

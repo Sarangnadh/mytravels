@@ -90,7 +90,7 @@ export class BookingComponent implements OnInit {
       selectDate: ['', [Validators.required,this.pastDatevalidation]],
       returnDate: ['', [Validators.required,this.pastDatevalidation,this.returnDateValidator.bind(this)]],
       selectedHotel: ['', Validators.required],
-      selectedFlight: ['', Validators.required]
+      selectedFlight: ['', Validators.required],
     });
   
   }
@@ -129,9 +129,12 @@ returnDateValidator(control:AbstractControl):ValidationErrors | null {
       countPeople: this.bookingForm.value.countPeople,
     }
     const preferences = {
-      selectedHotels: this.bookingForm.value.selectedHotel,
+      selectedHotel: this.bookingForm.value.selectedHotel,
       selectedFlight: this.bookingForm.value.selectedFlight,
     }
+console.log('hotel',this.bookingForm.controls);
+console.log('hotel',this.bookingForm.value);
+
 
     if (this.bookingForm.valid) {
       const result = this.service.bookingconfirm(customerName, email, mobno, password, tripInfo, preferences)
@@ -142,7 +145,8 @@ returnDateValidator(control:AbstractControl):ValidationErrors | null {
             UserName: customerName,
             From: tripInfo.from,
             Destination: tripInfo.destination,
-            Airline: preferences.selectedFlight
+            Airline: preferences.selectedFlight,
+            Hotel:preferences.selectedHotel
 
           }
         })

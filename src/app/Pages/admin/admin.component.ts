@@ -31,7 +31,7 @@ export class AdminComponent implements OnInit {
 
     const bookingHistory =this.ds.getAllUsersBookingHistory();
     this.totalBookingsCount =bookingHistory.reduce((total,user)=>total + user.bookings.length,0);
-    this.canceledBookingsCount =bookingHistory.reduce((total,user)=>total+user.bookings.filter((booking:any)=> booking.status === 'Canceled').length,0);
+    this.canceledBookingsCount =bookingHistory.reduce((total,user)=>total+user.bookings.filter((booking:any)=> booking['status'] === 'Canceled').length,0);
     
   }
 
