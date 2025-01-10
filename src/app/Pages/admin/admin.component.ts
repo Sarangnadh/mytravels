@@ -18,7 +18,7 @@ export class AdminComponent implements OnInit {
   canceledBookingsCount:number=0;
   explore:any[]=[];
   schedule:any=[];
-
+  bookingHistory: any[] = [];
   newExploreItem= '';
   newScheduleItem='';
 
@@ -32,7 +32,17 @@ export class AdminComponent implements OnInit {
     const bookingHistory =this.ds.getAllUsersBookingHistory();
     this.totalBookingsCount =bookingHistory.reduce((total,user)=>total + user.bookings.length,0);
     this.canceledBookingsCount =bookingHistory.reduce((total,user)=>total+user.bookings.filter((booking:any)=> booking['status'] === 'Canceled').length,0);
+    this.bookingHistory=bookingHistory
     
+  }
+  cancelBooking(userEmail: string, booking: any) {
+    const isCanceled = this.ds.cancelBooking(userEmail, booking);
+    if (isCanceled) {
+      alert('Booking canceled successfully.');
+      this.ngOnInit(); // Refresh the data after cancellation
+    } else {
+      alert('Failed to cancel the booking.');
+    }
   }
 
   addExploreItem() {

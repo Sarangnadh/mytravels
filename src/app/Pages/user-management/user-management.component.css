@@ -27,6 +27,7 @@ body {
   color: #555;
 }
 
+/* User Table */
 .user-table {
   width: 100%;
   border-collapse: collapse;
@@ -140,4 +141,72 @@ body {
 
 .animate {
   animation: fadeIn 0.8s ease;
+}
+
+/* Responsive Design */
+
+/* For tablets (up to 1024px) */
+@media (max-width: 1024px) {
+  .booking-card {
+    width: calc(100% - 20px);
+  }
+
+  .dashboard-title {
+    font-size: 2rem;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+  }
+}
+
+/* For small screens (up to 768px) */
+@media (max-width: 768px) {
+  .user-table th,
+  .user-table td {
+    font-size: 0.85rem;
+    padding: 8px;
+  }
+
+  .btn {
+    font-size: 0.8rem;
+  }
+
+  .dashboard-title {
+    font-size: 1.8rem;
+  }
+
+  .section-title {
+    font-size: 1.3rem;
+  }
+}
+
+/* For mobile devices (up to 480px) */
+@media (max-width: 480px) {
+  .admin-dashboard {
+    padding: 15px;
+  }
+
+  .user-table th,
+  .user-table td {
+    font-size: 0.8rem;
+    padding: 5px;
+  }
+
+  .booking-card {
+    width: 100%;
+  }
+
+  .dashboard-title {
+    font-size: 1.5rem;
+  }
+
+  .section-title {
+    font-size: 1.2rem;
+  }
+
+  .btn {
+    font-size: 0.75rem;
+    padding: 4px 8px;
+  }
 }
