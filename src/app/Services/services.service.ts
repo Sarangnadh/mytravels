@@ -13,7 +13,6 @@ export class ServicesService {
 
     "starkindu@gmail.com": { fullname: "Sarang", email: "starkindu@gmail.com", mobno: 8301056189, password: "12345678", role: "user", booking: [], bookingList: [] },
 
-
   }
   adminDb: any = {
     "admin@gmail.com": { fullname: "Admin", email: "admin@gmail.com", mobno: 1234567890, password: 'admin5789', role: "admin", userBookingList: [] }

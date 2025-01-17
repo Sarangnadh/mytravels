@@ -35,15 +35,6 @@ export class AdminComponent implements OnInit {
     this.bookingHistory=bookingHistory
     
   }
-  cancelBooking(userEmail: string, booking: any) {
-    const isCanceled = this.ds.cancelBooking(userEmail, booking);
-    if (isCanceled) {
-      alert('Booking canceled successfully.');
-      this.ngOnInit(); // Refresh the data after cancellation
-    } else {
-      alert('Failed to cancel the booking.');
-    }
-  }
 
   addExploreItem() {
     if (this.newExploreItem.trim()) {
