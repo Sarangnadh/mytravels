@@ -1,212 +1,170 @@
 /* General Styling */
-body {
-  font-family: 'Arial', sans-serif;
-  background: #f4f4f9;
-  margin: 0;
+.user-management {
   padding: 20px;
+  font-family: Arial, sans-serif;
 }
 
-.admin-dashboard {
-  background: #ffffff;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  margin-bottom: 20px;
-  animation: fadeIn 1s ease;
-}
-
-.dashboard-title {
-  font-size: 2.5rem;
+h1, h2 {
   color: #333;
   text-align: center;
 }
 
-.section-title {
-  font-size: 1.8rem;
-  margin-bottom: 20px;
-  color: #555;
+/* User List */
+.user-list {
+  margin-bottom: 30px;
 }
 
-/* User Table */
-.user-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-bottom: 20px;
+.user-list ul {
+  list-style: none;
+  padding: 0;
 }
 
-.user-table th,
-.user-table td {
-  border: 1px solid #ddd;
-  padding: 10px;
-  text-align: left;
-}
-
-.user-table th {
-  background: #333;
-  color: white;
-}
-
-.user-row:hover {
+.user-list .user-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  margin: 10px 0;
+  border-radius: 8px;
   background: #f9f9f9;
-  transition: background 0.3s ease;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.user-list .user-item:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.user-info {
+  font-size: 16px;
+}
+
+.user-actions .btn {
+  margin-left: 10px;
+}
+
+/* Bookings */
+.user-bookings ul {
+  list-style: none;
+  padding: 0;
+}
+
+.user-bookings .booking-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  margin: 10px 0;
+  border-radius: 8px;
+  background: #eef9ff;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.user-bookings .booking-item:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Buttons */
 .btn {
-  padding: 5px 10px;
-  border-radius: 5px;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
   cursor: pointer;
-  font-size: 0.9rem;
+  font-size: 14px;
+  transition: background 0.3s, transform 0.2s;
 }
 
-.btn-danger {
-  background: #e74c3c;
-  color: white;
-  border: none;
+.btn:hover {
+  transform: translateY(-2px);
 }
 
-.btn-danger:hover {
-  background: #c0392b;
-  transition: background 0.3s ease;
+.view-btn {
+  background: #4caf50;
+  color: #fff;
 }
 
-.btn-success {
-  background: #2ecc71;
-  color: white;
-  border: none;
+.view-btn:hover {
+  background: #45a049;
 }
 
-.btn-success:hover {
-  background: #27ae60;
-  transition: background 0.3s ease;
+.remove-btn {
+  background: #f44336;
+  color: #fff;
 }
 
-.btn-warning {
-  background: #f39c12;
-  color: white;
-  border: none;
+.remove-btn:hover {
+  background: #e53935;
 }
 
-.btn-warning:hover {
-  background: #e67e22;
-  transition: background 0.3s ease;
+.confirm-btn {
+  background: #2196f3;
+  color: #fff;
 }
 
-/* Booking Cards */
-.user-bookings {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
+.confirm-btn:hover {
+  background: #1e88e5;
 }
 
-.booking-card {
-  background: #ffffff;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  width: calc(50% - 20px);
-  transition: transform 0.3s ease;
+.cancel-btn {
+  background: #ff9800;
+  color: #fff;
 }
 
-.booking-card:hover {
-  transform: scale(1.05);
+.cancel-btn:hover {
+  background: #fb8c00;
 }
 
-.user-title {
-  font-size: 1.2rem;
-  color: #333;
+/* No Bookings Message */
+.no-bookings {
+  text-align: center;
+  margin: 20px 0;
+  font-size: 16px;
+  color: #666;
+  background: #f9f9f9;
+  padding: 10px;
+  border-radius: 8px;
 }
 
-.booking-detail {
-  font-size: 0.9rem;
-  margin-bottom: 10px;
-}
-
-.booking-status {
-  font-weight: bold;
-  color: #3498db;
-}
-
-/* Animations */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.animate {
-  animation: fadeIn 0.8s ease;
-}
-
-/* Responsive Design */
-
-/* For tablets (up to 1024px) */
-@media (max-width: 1024px) {
-  .booking-card {
-    width: calc(100% - 20px);
-  }
-
-  .dashboard-title {
-    font-size: 2rem;
-  }
-
-  .section-title {
-    font-size: 1.5rem;
-  }
-}
-
-/* For small screens (up to 768px) */
+/* Responsive Adjustments */
 @media (max-width: 768px) {
-  .user-table th,
-  .user-table td {
-    font-size: 0.85rem;
-    padding: 8px;
+  .user-list .user-item, 
+  .user-bookings .booking-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .user-info {
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+
+  .user-actions .btn {
+    margin: 5px 0 0 0;
   }
 
   .btn {
-    font-size: 0.8rem;
-  }
-
-  .dashboard-title {
-    font-size: 1.8rem;
-  }
-
-  .section-title {
-    font-size: 1.3rem;
+    font-size: 12px;
+    padding: 5px 10px;
   }
 }
 
-/* For mobile devices (up to 480px) */
 @media (max-width: 480px) {
-  .admin-dashboard {
-    padding: 15px;
+  h1, h2 {
+    font-size: 18px;
   }
 
-  .user-table th,
-  .user-table td {
-    font-size: 0.8rem;
-    padding: 5px;
-  }
-
-  .booking-card {
-    width: 100%;
-  }
-
-  .dashboard-title {
-    font-size: 1.5rem;
-  }
-
-  .section-title {
-    font-size: 1.2rem;
+  .user-list .user-item, 
+  .user-bookings .booking-item {
+    padding: 10px;
   }
 
   .btn {
-    font-size: 0.75rem;
+    font-size: 10px;
     padding: 4px 8px;
+  }
+
+  .no-bookings {
+    font-size: 14px;
   }
 }

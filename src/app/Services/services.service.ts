@@ -10,15 +10,20 @@ export class ServicesService {
   private loggedIn = false;
   currentUser: any;
   db: any = {
-
-    "starkindu@gmail.com": { fullname: "Sarang", email: "starkindu@gmail.com", mobno: 8301056189, password: "12345678", role: "user", booking: [], bookingList: [] },
-
+    "starkindu@gmail.com": {
+      fullname: "Sarang", email: "starkindu@gmail.com", mobno: 8301056189, password: "12345678", role: "user",
+      booking: [], bookingList: []
+    },
   }
   adminDb: any = {
-    "admin@gmail.com": { fullname: "Admin", email: "admin@gmail.com", mobno: 1234567890, password: 'admin5789', role: "admin", userBookingList: [] }
+    "admin@gmail.com": {
+      fullname: "Admin", email: "admin@gmail.com", mobno: 1234567890, password: 'admin5789', role: "admin",
+      usersList: [], userBookingList: [], userCancelCount: [], adminRejection: [], tripConformationdetails: [], userRemoveList: []
+    }
   };
+
   constructor(private route: Router) {
-    this.getInfo();
+    this.getInfo()
   }
   // save details
   saveInfo() {
@@ -32,9 +37,9 @@ export class ServicesService {
     if (this.db) {
       localStorage.setItem("username", JSON.stringify(this.db))
     }
-    if (this.db) {
-      localStorage.setItem("customerMail", JSON.stringify(this.customerMail))
-    }
+    // if (this.db) {
+    //   localStorage.setItem("customerMail", JSON.stringify(this.customerMail))
+    // }
 
 
   }
@@ -52,26 +57,70 @@ export class ServicesService {
     if (localStorage.getItem("username")) {
       this.username = JSON.parse(localStorage.getItem("username") || '')
     }
-    if (localStorage.getItem("customerMail")) {
-      this.customerMail = JSON.parse(localStorage.getItem("customerMail") || '')
-    }
+    // if (localStorage.getItem("customerMail")) {
+    //   this.customerMail = JSON.parse(localStorage.getItem("customerMail") || '')
+    // }
 
   }
-  // Get all users' booking history with status
-  getAllUsersBookingHistory() {
-    return Object.entries(this.db).map(([email, user]: [string, any]) => ({
-      email,
-      fullname: user.fullname,
-      bookings: user.bookingList.map((booking: any) => ({
-        ...booking,
-        status: booking.status || "Pending", // Default status if not set
-      })),
-    }));
-  }
+
+  // cancelBooking(email: string, bookingToRemove: any): boolean {
+  //   const user = this.db[email];
+
+  //   if (user) {
+  //     // Find the index of the booking to be removed
+  //     const bookingIndex = user.bookingList.findIndex(
+  //       (booking: any) =>
+  //         booking.From === bookingToRemove.From &&
+  //         booking.Destination === bookingToRemove.Destination &&
+  //         booking.DepartureDate === bookingToRemove.DepartureDate &&
+  //         booking.ReturnDate === bookingToRemove.ReturnDate &&
+  //         booking.CountPeople === bookingToRemove.CountPeople
+  //     );
+
+  //     if (bookingIndex > -1) {
+  //       // Remove the booking
+  //       user.bookingList.splice(bookingIndex, 1); // Remove from bookingList
+  //       user.booking.splice(bookingIndex, 1); // Remove from booking (if applicable)
+
+  //       // Update the cancellation count in adminDb
+  //       if (!this.adminDb["admin@gmail.com"].userCancelCount) {
+  //         this.adminDb["admin@gmail.com"].userCancelCount = [];
+  //       }
+
+  //       const cancelIndex = this.adminDb["admin@gmail.com"].userCancelCount.findIndex(
+  //         (entry: any) => entry.email === email
+  //       );
+
+  //       if (cancelIndex > -1) {
+  //         // Increment the count for the user
+  //         this.adminDb["admin@gmail.com"].userCancelCount[cancelIndex].count++;
+  //       } else {
+  //         // Add a new entry for the user
+  //         this.adminDb["admin@gmail.com"].userCancelCount.push({ email, count: 1 });
+  //       }
+
+  //       // Store the cancellation count in the user's profile
+  //       if (!user.cancellationHistory) {
+  //         user.cancellationHistory = { count: 0, cancelledBookings: [] };
+  //       }
+  //       user.cancellationHistory.count++;
+  //       user.cancellationHistory.cancelledBookings.push(bookingToRemove);
+
+  //       // Save the updated data
+  //       this.saveInfo();
+  //       return true;
+  //     }
+  //   }
+
+  //   return false;
+  // }
+
 
   cancelBooking(email: string, bookingToRemove: any): boolean {
     const user = this.db[email];
+
     if (user) {
+      // Find the index of the booking to be removed
       const bookingIndex = user.bookingList.findIndex(
         (booking: any) =>
           booking.From === bookingToRemove.From &&
@@ -82,33 +131,60 @@ export class ServicesService {
       );
 
       if (bookingIndex > -1) {
-        user.bookingList.splice(bookingIndex, 1); // remove from bookingList
-        user.booking.splice(bookingIndex, 1); // remove from booking (if applicable)
-        this.saveInfo(); // save updated data to localStorage
+        // Remove the booking
+        user.bookingList.splice(bookingIndex, 1); // Remove from bookingList
+        user.booking.splice(bookingIndex, 1); // Remove from booking (if applicable)
+
+        // Update the cancellation count in adminDb
+        if (!this.adminDb["admin@gmail.com"].userCancelCount) {
+          this.adminDb["admin@gmail.com"].userCancelCount = [];
+        }
+
+        const cancelIndex = this.adminDb["admin@gmail.com"].userCancelCount.findIndex(
+          (entry: any) => entry.email === email
+        );
+
+        if (cancelIndex > -1) {
+          // Increment the count for the user
+          this.adminDb["admin@gmail.com"].userCancelCount[cancelIndex].count++;
+        } else {
+          // Add a new entry for the user
+          this.adminDb["admin@gmail.com"].userCancelCount.push({ email, count: 1 });
+        }
+
+        // Store the cancellation count in the user's profile
+        if (!user.cancellationHistory) {
+          user.cancellationHistory = { count: 0, cancelledBookings: [] };
+        }
+        user.cancellationHistory.count++;
+        user.cancellationHistory.cancelledBookings.push(bookingToRemove);
+
+        // Save the updated data
+        this.saveInfo();
         return true;
       }
     }
+
     return false;
   }
 
-
-  // Get all users (Admin-specific)
-  getAllUsers() {
-    const users = Object.entries(this.db)
-      .map(([email, data]) => ({ email, data }));
-    return users;
-
-  }
-
-  // Remove user (Admin-specific)
-  removeUser(email: string) {
-    if (email in this.db) {
-      delete this.db[email];
-      this.saveInfo();
-      return true;
+  // Booking rejection by admin
+  rejectBooking(email: string, bookingToReject: any): void {
+    const admin = this.adminDb["admin@gmail.com"];
+    
+    if (!admin.adminRejection) {
+      admin.adminRejection = [];
     }
-    return false;
+
+    admin.adminRejection.push({ ...bookingToReject, email });
+
+    // Save the updated data
+    this.saveInfo();
   }
+
+
+
+
   logout(): void {
     // Clear all user-related data from localStorage
     localStorage.removeItem('token');
@@ -120,7 +196,7 @@ export class ServicesService {
     // Reset the service variables
     this.currentUser = null;
     this.username = null;
-    this.customerMail = null;
+    // this.customerMail = null;
 
     // Redirect to login or home page
     this.route.navigateByUrl('/login').then(() => {
@@ -205,6 +281,15 @@ export class ServicesService {
         role: "user"
 
       }
+      if (this.adminDb["admin@gmail.com"] && this.adminDb["admin@gmail.com"].usersList) {
+        this.adminDb["admin@gmail.com"].usersList.push({
+          fullname,
+          email,
+          mobno,
+          password,
+          createdDate: currentDate,
+        });
+      }
       console.log(db);
       this.saveInfo()
       return true
@@ -243,6 +328,34 @@ export class ServicesService {
           SelectedFlight: preferences.selectedFlight,
           status: "Pending",
         })
+        // Update adminDb's userBookingList
+        const admin = this.adminDb["admin@gmail.com"];
+        if (admin) {
+          if (!admin.userBookingList) {
+            admin.userBookingList = [];
+          }
+
+          // Add booking details to adminDb's userBookingList
+          admin.userBookingList.push({
+            email,
+            ...db[email]["booking"],
+          });
+
+          // Increment booking count for the user
+          if (!admin.userBookingCount) {
+            admin.userBookingCount = [];
+          }
+
+          const userBookingIndex = admin.userBookingCount.findIndex(
+            (entry: any) => entry.email === email
+          );
+
+          if (userBookingIndex > -1) {
+            admin.userBookingCount[userBookingIndex].count++;
+          } else {
+            admin.userBookingCount.push({ email, count: 1 });
+          }
+        }
         this.saveInfo()
         return db[email]["booking"]
       }

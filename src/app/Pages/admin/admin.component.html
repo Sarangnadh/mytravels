@@ -1,50 +1,53 @@
 <div class="dashboard">
-    <h1>Admin Dashboard</h1>
-    <div class="info-cards">
-      <div class="card">
-        <h3>Admin Email</h3>
-        <p>{{ adminEmail }}</p>
-      </div>
-      <div class="card">
-        <h3>Total Users</h3>
-        <p>{{ userCount }}</p>
-      </div>
-      <div class="card">
-        <h3>Total Bookings</h3>
-        <p>{{ totalBookingsCount }}</p>
-      </div>
-      <div class="card">
-        <h3>Canceled Bookings</h3>
-        <p>{{ canceledBookingsCount }}</p>
-      </div>
+  <h1>Admin Dashboard</h1>
+  <div class="info-cards">
+    <div class="card">
+      <h3>Admin Email</h3>
+      <p>{{ adminEmail }}</p>
     </div>
-  
-    <div class="data-management">
-      <div class="data-section">
-        <h3>Explore Items</h3>
-        <ul>
-          <li *ngFor="let item of explore">{{ item }}</li>
-        </ul>
-        <input
-          type="text"
-          [(ngModel)]="newExploreItem"
-          placeholder="Add new explore item"
-        />
-        <button (click)="addExploreItem()">Add</button>
-      </div>
-  
-      <div class="data-section">
-        <h3>Schedule Items</h3>
-        <ul>
-          <li *ngFor="let item of schedule">{{ item }}</li>
-        </ul>
-        <input
-          type="text"
-          [(ngModel)]="newScheduleItem"
-          placeholder="Add new schedule item"
-        />
-        <button (click)="addScheduleItem()">Add</button>
-      </div>
+    <div class="card">
+      <h3>Total Users</h3>
+      <p>{{ userCount }}</p>
+    </div>
+    <div class="card">
+      <h3>Total Bookings</h3>
+      <p>{{ totalBookingsCount }}</p>
+    </div>
+    <div class="card">
+      <h3>Canceled Bookings</h3>
+      <p>{{ canceledBookingsCount }}</p>
+    </div>
+    <div class="card">
+      <h3>Admin Rejections</h3>
+      <p>{{ adminRejectionCount }}</p>
+    </div>
+    <div class="card">
+      <h3>Trip Confirmations</h3>
+      <p>{{ tripConfirmationCount }}</p>
+    </div>
+    <div class="card">
+      <h3>Users Removed</h3>
+      <p>{{ userRemoveCount }}</p>
     </div>
   </div>
-  
+
+  <div class="data-management">
+    <div class="data-section">
+      <h3>Explore Items</h3>
+      <ul>
+        <li *ngFor="let item of explore">{{ item }}</li>
+      </ul>
+      <input type="text" [(ngModel)]="newExploreItem" placeholder="Add new explore item" />
+      <button (click)="addExploreItem()">Add</button>
+    </div>
+
+    <div class="data-section">
+      <h3>Schedule Items</h3>
+      <ul>
+        <li *ngFor="let item of schedule">{{ item }}</li>
+      </ul>
+      <input type="text" [(ngModel)]="newScheduleItem" placeholder="Add new schedule item" />
+      <button (click)="addScheduleItem()">Add</button>
+    </div>
+  </div>
+</div>
